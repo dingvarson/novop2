@@ -1,0 +1,44 @@
+
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+     
+    </ul>
+  </div>          
+<div class="content">            
+    <h2 class="title">Alterar a Senha <%= resource_name.to_s.humanize %></h2>
+    <div class="inner">
+     
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label "Nova senha" %> <i>(Deixe em branco se não quiser alterar a senha)</i><br />
+  <%= f.password_field :password, :autocomplete => "off" %></div>
+
+  <div><%= f.label "Confirme a senha" %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.label "Senha atual" %> <i>(Nós precisamos da sua senha atual para poder altera-la!)</i><br />
+  <%= f.password_field :current_password %></div>
+
+  <div><%= f.submit "Alterar" %></div>
+<% end %>
+
+<h3>Cancelar a minha conta</h3>
+
+<p>Não está satisfeito? <%= link_to "Cancelar minha Conta", registration_path(resource_name), :data => { :confirm => "Voce tem Certeza?" }, :method => :delete %>.</p>
+
+<%= link_to "Voltar", :back %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+

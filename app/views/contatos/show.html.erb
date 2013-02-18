@@ -1,0 +1,46 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", contatos_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_contato_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", contato_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.contato.nome_completo", :default => t("activerecord.labels.nome_completo", :default => "Nome completo")) %>:</b>
+          <%= @contato.nome_completo %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.contato.telefone", :default => t("activerecord.labels.telefone", :default => "Telefone")) %>:</b>
+          <%= @contato.telefone %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.contato.celular", :default => t("activerecord.labels.celular", :default => "Celular")) %>:</b>
+          <%= @contato.celular %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.contato.grupo", :default => t("activerecord.labels.grupo", :default => "Grupo")) %>:</b>
+          <%= @contato.grupo %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.contato.aniversario", :default => t("activerecord.labels.aniversario", :default => "Aniversario")) %>:</b>
+          <%= @contato.aniversario %>
+        </p>
+
+        
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_contato_path(@contato), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), contato_path(@contato), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

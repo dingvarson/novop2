@@ -13,6 +13,67 @@
 
 ActiveRecord::Schema.define(:version => 20130218223300) do
 
+  create_table "cadclis", :force => true do |t|
+    t.string   "nomecli"
+    t.string   "status"
+    t.float    "valor"
+    t.date     "datavencto"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cadprods", :force => true do |t|
+    t.string   "nomeprod"
+    t.integer  "quantprod"
+    t.float    "valunit"
+    t.float    "total"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "contatos", :force => true do |t|
+    t.string   "nome_completo"
+    t.string   "telefone"
+    t.string   "celular"
+    t.string   "grupo"
+    t.date     "aniversario"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "cta_recebers", :force => true do |t|
+    t.string   "nomecli"
+    t.string   "descr_serv"
+    t.float    "valor"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "items", :force => true do |t|
+    t.integer  "quant"
+    t.string   "descr"
+    t.float    "val_unit"
+    t.float    "val_total"
+    t.integer  "order_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "items", ["order_id"], :name => "index_items_on_order_id"
+
+  create_table "menus", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "nome_cli"
+    t.string   "end_cli"
+    t.string   "fone_cli"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false

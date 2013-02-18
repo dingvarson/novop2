@@ -1,0 +1,65 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", cta_recebers_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_cta_receber_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "")  %> 
+    	<form accept-charset="UTF-8" action="/cta_recebers/consulta" method="get">
+  <label>Nome do Cliente: 
+    <input type="text" name="lala" OnKeyUp="this.style.textTransform='uppercase'" id="" />
+      
+  </label>
+  <label>
+    <input type="submit" name="" id="" value="Consultar" />
+    
+  </label>
+  </h2>
+  
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.cta_receber.nomecli", :default => t("activerecord.labels.nomecli", :default => "Nomecli")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Criado em")  %></th>
+                    
+                    <th><%= t("web-app-theme.valor", :default => "Valor")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @cta_recebers.each do |cta_receber| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= cta_receber.id %>
+          </td>
+                    <td>
+            <%= link_to cta_receber.nomecli, cta_receber_path(cta_receber) %>
+          </td>
+                    <td>
+            <%= cta_receber.created_at.strftime("%d/%m/%Y") %>
+          </td>
+          <td>
+            <%= cta_receber.valor %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", cta_receber_path(cta_receber) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_cta_receber_path(cta_receber) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", cta_receber_path(cta_receber), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        <%= will_paginate @cta_recebers %>
+        Total Geral R$<%= @cta_recebers = CtaReceber.sum(:valor)%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

@@ -1,0 +1,79 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", cadclis_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_cadcli_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "")  %>
+    <form accept-charset="UTF-8" action="/cadclis/consulta" method="get">
+  <label>Nome do Cliente: 
+    <input type="text" name="lala" OnKeyUp="this.style.textTransform='uppercase'" id="" />
+      
+  </label>
+  <label>
+    <input type="submit" name="" id="" value="Consultar" />
+    
+  </label>
+ </h2>   
+    
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.cadcli.nomecli", :default => t("activerecord.labels.nomecli", :default => "Nome Cliente")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Criado em")  %></th>
+                    
+                     <th><%= t("web-app-theme.valor", :default => "Valor")  %></th>
+                     
+                     <th><%= t("web-app-theme.valor", :default => "Status")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+         <% if @cadclis.blank? then %>
+        
+        <h2>NÃO EXISTEM REGISTROS</h2>
+        
+        <%else%>
+        <% @cadclis.each do |cadcli| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= cadcli.id %>
+          </td>
+                    <td>
+            <%= link_to cadcli.nomecli, cadcli_path(cadcli) %>
+          </td>
+                    <td>
+            <%= cadcli.created_at %>
+             <td>
+            <%= cadcli.valor %>
+              <td>
+            <%= cadcli.status %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path(cadcli) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_cadcli_path(cadcli) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", cadcli_path(cadcli), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+         
+        
+        Total Geral R$<%= @cadclis = Cadcli.sum(:valor)%>
+        
+       
+        
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<% end %>

@@ -1,0 +1,34 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", cta_recebers_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_cta_receber_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", cta_receber_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.cta_receber.nomecli", :default => t("activerecord.labels.nomecli", :default => "Nomecli")) %>:</b>
+          <%= @cta_receber.nomecli %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.cta_receber.descr_serv", :default => t("activerecord.labels.descr_serv", :default => "Descr serv")) %>:</b>
+          <%= @cta_receber.descr_serv %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.cta_receber.valor", :default => t("activerecord.labels.valor", :default => "Valor")) %>:</b>
+          <%= @cta_receber.valor %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_cta_receber_path(@cta_receber), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), cta_receber_path(@cta_receber), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

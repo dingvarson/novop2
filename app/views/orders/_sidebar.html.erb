@@ -1,0 +1,53 @@
+<div class="block notice">
+
+
+	 <% if @order.nome_cli.nil? %>
+                        
+    <h2>Adicionar Items:</h2>
+<div class="content">
+    <p>Preencha os dados do Cabeçalho.</p>
+  </div>
+      
+      
+        <% else %>
+        
+     
+     
+       <h2>Adicionar Items:</h2>
+<%= form_for([@order, @order.items.build]) do |f| %>
+
+ <div class="field">
+    <%= f.label "Quantidade:" %><br />
+    <%= f.text_field :quant, :size => 7, :maxlength => 7 %>
+  </div>
+  <div class="field">
+    <%= f.label "Descrição:" %><br />
+    <%= f.text_field :descr %>
+  </div>
+  <div class="field">
+    <%= f.label "Valor:" %><br />
+    <%= f.text_field :val_unit %>
+    
+  </div>
+  <div class="field">
+    <%= f.label "Total:" %><br />
+    <%= f.text_field :val_total , :readonly => true %>
+  </div>
+  
+   <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+      
+        <% end %>
+
+
+ 
+</div>
+<div class="block">
+  <% if @items.nil? %>
+    <h3>nada</h3>
+    <% else %>
+    <h3>Total geral de Itens R$ <%= @items %></h3>
+    <% end %>
+</div>

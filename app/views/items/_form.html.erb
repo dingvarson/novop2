@@ -1,0 +1,36 @@
+
+   <div class="field">
+    <%= f.label :quant, t("activerecord.attributes.order.end_cli", :default => "Quantidade"), :class => :label %>
+    <%= f.text_field :quant, :class => 'text_field', :size => 7, :maxlength => 7 %><p>
+  </div>
+  
+  
+   <div class="field">
+    <%= f.label :descr, t("activerecord.attributes.order.end_cli", :default => "Descrição"), :class => :label %>
+    <%= f.text_field :descr, :class => 'text_field' %><p>
+  </div>
+  
+   <div class="field">
+    <%= f.label :val_unit, t("activerecord.attributes.order.end_cli", :default => "Valor Unitário"), :class => :label %>
+    <%= f.text_field :val_unit, :class => 'text_field' %><p>
+  </div>
+  
+  <div class="field">
+    <%= f.label :val_total, t("activerecord.attributes.order.end_cli", :default => "Valor Total"), :class => :label %>
+    <%= f.text_field :val_total, :class => 'text_field', :readyonly => true %><p>
+  </div>
+  <p>
+  	 <div class="actions">
+  
+   </div>
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Salvar")}") %> <%= t("web-app-theme.save", :default => "Salvar") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), orders_path, :class => "text_button_padding link_button" %>
+</div>
+
+  
+ 
+

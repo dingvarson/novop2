@@ -1,0 +1,43 @@
+<div class="block notice">
+  <h3>Login de Acesso</h3>
+  <div class="content">
+     <% if user_signed_in? %>
+
+            Logado como: <%= current_user.email %>. Não é você?
+
+            <%= link_to "Encerrar Sessão", logout_path %>
+            <%= link_to "Alterar Senha", edit_user_registration_path %>
+
+        <% else %>
+       
+      
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+ 
+  <div><%= f.label :email %><br />
+  <%= f.collection_select(:email, User.order('email ASC').all, :email, :email, :prompt => "Selecione o Usuário") %>
+  
+
+ 
+  <div><%= f.label "senha" %><br />
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label "lembrar-se" %></div>
+  <% end -%>
+
+  <div><%= f.submit "Entrar" %></div>
+  
+<% end %>
+
+
+
+  <% end %>
+  </div>
+</div>
+<div class="block">
+  <h3>Links Uteis</h3>
+  <ul class="navigation">
+    <li><a href="#">Link 1</a></li>
+    <li><a href="#">Link 2</a></li>
+  </ul>
+</div>

@@ -1,6 +1,79 @@
 Omini::Application.routes.draw do
-  devise_for :users
+  resources :cadprods
 
+
+   # rotas para consultar contatos
+ resources :orders do
+  collection do
+    get 'consulta'
+    get 'consul_cli'
+   get 'consuldata'
+   
+  end
+end
+  
+  
+  
+   #gerar a ordem de serviço com os items
+   resources :orders do
+    resources :items  
+   end
+   
+   resources :items  
+   
+   # rotas para consultar contatos
+ resources :orders do
+  collection do
+    get 'consulta'
+    get 'consul_cli'
+   
+  end
+end
+    
+   resources :Logons 
+    
+ # rotas para consultar contatos
+ resources :contatos do
+  collection do
+    get 'consulta'
+    get 'consul_cli'
+   
+  end
+end
+
+  #consulta de contas á receber pela descrição
+  resources :cta_recebers do
+  collection do
+    get 'consulta'
+    get 'consul_cli'
+   
+  end
+end
+
+
+
+
+devise_for :users
+  
+  resources :menus
+  
+   
+devise_for :users do
+  get 'logout' => 'devise/sessions#destroy'
+end
+
+# para liberar a alteração da senha mesmo estando autenticado
+devise_for :users, :skip => [:registrations]
+
+ resources :cadclis do
+  collection do
+    get 'consulta'
+    get 'consul_cli'
+    get'rel_cli'
+  end
+end
+
+root :to => "principals#show"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
