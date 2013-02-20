@@ -1,6 +1,7 @@
 class Cadprod < ActiveRecord::Base
   attr_accessible :nomeprod, :quantprod, :total, :valunit
 
+ validates_presence_of :nomeprod, :quantprod, :total, :valunit
 
  #inserindo upcase
   before_save :upcase_cadprod

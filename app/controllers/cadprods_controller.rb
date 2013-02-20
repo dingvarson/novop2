@@ -1,4 +1,21 @@
 class CadprodsController < ApplicationController
+ 
+ # query que localiza o produto pelo ID
+  def consulta_prod
+  @cadprod = Cadprod.find(params['lala'])         
+                    
+      respond_to do |format|
+        format.html #show.html.erb
+        format.json { render json: @cadprods }
+      end
+    end
+  
+    def consul_cli
+     
+  end 
+ 
+ 
+ 
   # GET /cadprods
   # GET /cadprods.json
   def index

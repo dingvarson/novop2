@@ -13,7 +13,19 @@
         
      
      
-       <h2>Adicionar Items:</h2>
+       <h2>Adicionar Items:</h2><br />
+       
+ <form accept-charset="UTF-8" action="/cadprods/consulta_prod" method="get">
+ <label>Localizar Produto:
+ <input type="text" name="lala" size="5" OnKeyUp="this.style.textTransform='uppercase'" id="" />
+ </label>
+ <label>
+ <input type="submit" name="" id="" value="Consultar" />
+ </label>
+ </form>
+ <p></p>    
+ 
+   
 <%= form_for([@order, @order.items.build]) do |f| %>
 
  <div class="field">

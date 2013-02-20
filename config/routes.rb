@@ -1,6 +1,6 @@
 Omini::Application.routes.draw do
-  resources :cadprods
-
+  resources :cadprods 
+  
 
    # rotas para consultar contatos
  resources :orders do
