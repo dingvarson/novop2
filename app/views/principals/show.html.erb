@@ -1,33 +1,46 @@
+<div class="block" id="block-text">  
+  <div class="content">
 <% if signed_in?(:user) %>
 
-                         
- <div class="block" id="block-text">  
-  <div class="content">
-    <h2 class="title">Pendências de Clientes</h2>
+      
+        
+    <h2 class="title">Listagem de Clientes Pendentes</h2>
     <div class="inner">
       <p class="first">
-        Segue abaixo a listagem de clientes que <span class="hightlight">Não efetuaram o pagamento da taxa de manutenção.</span>
+        Segue abaixo a listagem de clientes que ainda <span class="hightlight">Não efetuou o pagamento mensal</span>, de acordo com a data de vencimento.
       </p>
-      <p> <span class="gray">
-      
-      	</span></p>
+           <p> <span class="gray">Clique sobre o nome do cliente para visualizar todos os dados</span></p>
       <hr />
-      <p>
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.cadcli.nomecli", :default => t("activerecord.labels.nomecli", :default => "Nome Cliente")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Criado em")  %></th>
+                    
+                     <th><%= t("web-app-theme.valor", :default => "Valor")  %></th>
+                     
+                     <th><%= t("web-app-theme.valor", :default => "Status")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+       
         
-<% @cadclis.each do |cadcli| -%>
+        <% @cadclis.each do |cadcli| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
             <%= cadcli.id %>
           </td>
                     <td>
-                   
             <%= link_to cadcli.nomecli, cadcli_path(cadcli) %>
           </td>
                     <td>
-            <%= cadcli.datavencto.strftime("%d/%m/%Y") %>
+            <%= cadcli.created_at.strftime("%d/%m/%Y") %>
              <td>
             <%= cadcli.valor %>
-              
+              <td>
+            <%= cadcli.status %>
+          </td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path(cadcli) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_cadcli_path(cadcli) %> |
@@ -35,24 +48,18 @@
           </td>
         </tr>          
         <% end -%>
-        
-               
-
-
-      </p>
+      </table>
     </div>
   </div>
 </div>
 
 <% content_for :sidebar, render(:partial => 'sidebar') -%>
-      
-      
+
+
+
         <% else %>
         
         
-
-<div class="block" id="block-text">  
-  <div class="content">
     <h2 class="title">Informações de Uso da Aplicação</h2>
     <div class="inner">
       <p class="first">
