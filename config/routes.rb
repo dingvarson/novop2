@@ -1,7 +1,4 @@
 Omini::Application.routes.draw do
-  resources :anotacaos
-
-
   resources :cadprods 
   
 
