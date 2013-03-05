@@ -1,0 +1,23 @@
+<h1>Listing anotacaos</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @anotacaos.each do |anotacao| %>
+  <tr>
+    <td><%= anotacao.nome %></td>
+    <td><%= link_to 'Show', anotacao %></td>
+    <td><%= link_to 'Edit', edit_anotacao_path(anotacao) %></td>
+    <td><%= link_to 'Destroy', anotacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Anotacao', new_anotacao_path %>
