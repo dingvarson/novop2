@@ -3,6 +3,7 @@ class CadclisController < ApplicationController
   #gerando o relatório de clientes
   def rel_cli
  
+ 
   end
   
  

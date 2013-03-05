@@ -1,6 +1,7 @@
 Omini::Application.routes.draw do
-  resources :cadprods 
   
+
+  resources :cadprods
 
    # rotas para consultar contatos
  resources :orders do
@@ -64,6 +65,8 @@ end
 
 # para liberar a alteração da senha mesmo estando autenticado
 devise_for :users, :skip => [:registrations]
+
+
 
  resources :cadclis do
   collection do

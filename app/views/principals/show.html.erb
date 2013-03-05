@@ -1,5 +1,6 @@
 <% if signed_in?(:user) %>
-                        
+
+                         
  <div class="block" id="block-text">  
   <div class="content">
     <h2 class="title">Pendências de Clientes</h2>
@@ -12,7 +13,32 @@
       	</span></p>
       <hr />
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <span class="hightlight">Excepteur sint occaecat cupidatat non proident</span>, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        
+<% @cadclis.each do |cadcli| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= cadcli.id %>
+          </td>
+                    <td>
+                   
+            <%= link_to cadcli.nomecli, cadcli_path(cadcli) %>
+          </td>
+                    <td>
+            <%= cadcli.datavencto.strftime("%d/%m/%Y") %>
+             <td>
+            <%= cadcli.valor %>
+              
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path(cadcli) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_cadcli_path(cadcli) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", cadcli_path(cadcli), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+        
+               
+
+
       </p>
     </div>
   </div>
@@ -45,3 +71,4 @@
 <% content_for :sidebar, render(:partial => 'sidebar') -%>
 
 <% end %>
+
