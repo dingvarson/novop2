@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  descricao: MyString
+  nomeforn: MyString
+  datavencto: 2013-03-06
+  valor: 1.5
+
+two:
+  descricao: MyString
+  nomeforn: MyString
+  datavencto: 2013-03-06
+  valor: 1.5

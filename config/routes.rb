@@ -1,6 +1,9 @@
 Omini::Application.routes.draw do
   
 
+  resources :cta_pagars
+
+
   resources :cadprods
 
    # rotas para consultar contatos
