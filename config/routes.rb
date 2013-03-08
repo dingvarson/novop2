@@ -1,7 +1,11 @@
 Omini::Application.routes.draw do
   
 
-  resources :cta_pagars
+  resources :cta_pagars do
+    collection do 
+      get 'consulta'
+    end
+  end
 
 
   resources :cadprods

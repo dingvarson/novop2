@@ -1,14 +1,14 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cta_pagars_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_cta_pagar_path %></li>
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", cta_pagars_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_cta_pagar_path %></li>
     </ul>
   </div>          
   <div class="content">          
    <h2 class="title"><%= t("web-app-theme.all", :default => "")  %> 
-      	<form accept-charset="UTF-8" action="/cta_recebers/consulta" method="get">
-  <label>Nome do Fornecedor: 
+      	<form accept-charset="UTF-8" action="/cta_pagars/consulta" method="get">
+  <label>Digite um Trecho da Descrição: 
     <input type="text" name="lala" OnKeyUp="this.style.textTransform='uppercase'" id="" />
       
   </label>
@@ -23,7 +23,7 @@
         <tr>             
           <th class="first">ID</th>
                     <th>
-            <%= t("activerecord.attributes.cta_pagar.descricao", :default => t("activerecord.labels.descricao", :default => "Descricao")) %>
+            <%= t("activerecord.attributes.cta_pagar.descricao", :default => t("activerecord.labels.descricao", :default => "Descrição")) %>
           </th>
                     <th><%= t("web-app-theme.created_at", :default => "Vencimento")  %></th>
           <th class="last">&nbsp;</th>

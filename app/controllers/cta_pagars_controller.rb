@@ -10,6 +10,17 @@ class CtaPagarsController < ApplicationController
     end
   end
 
+   # TESTANDO A PRIMEIRA CONSULTA COM BASE NUMA VIEW CRIADA NA MÃO
+  def consulta
+      @cta_pagars = CtaPagar.where("descricao like ?", "%#{params['lala'].upcase}%")
+           
+      
+      respond_to do |format|
+        format.html #show.html.erb
+        format.json { render json: @cta_pagars }
+      end
+    end
+
   # GET /cta_pagars/1
   # GET /cta_pagars/1.json
   def show

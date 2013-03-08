@@ -9,7 +9,7 @@ gem 'pg'
 gem 'devise'
 
 # gem necessária para autenticação de usuário
-gem 'devise'
+gem 'pdfkit'
 
 # gem necessária para a criaçaõ de temas
 gem 'web-app-theme'

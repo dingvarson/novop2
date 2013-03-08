@@ -67,6 +67,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.4.0)
       mime-types
+    pdfkit (0.5.3)
     pg (0.14.1-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -126,6 +127,7 @@ DEPENDENCIES
   devise
   jquery-rails
   paperclip (~> 3.0)
+  pdfkit
   pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)

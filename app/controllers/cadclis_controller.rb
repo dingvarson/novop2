@@ -26,7 +26,7 @@ class CadclisController < ApplicationController
   
     # TESTANDO A PRIMEIRA CONSULTA COM BASE NUMA VIEW CRIADA NA MÃO
   def consulta
-      @cadclis = Cadcli.where("nomecli like ?", "#{params['lala'].upcase}%")
+      @cadclis = Cadcli.where("nomecli like ?", "%#{params['lala'].upcase}%")
            
                                 
       respond_to do |format|

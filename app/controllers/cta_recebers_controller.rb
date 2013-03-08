@@ -16,7 +16,7 @@ class CtaRecebersController < ApplicationController
   
    # TESTANDO A PRIMEIRA CONSULTA COM BASE NUMA VIEW CRIADA NA MÃO
   def consulta
-      @cta_recebers = CtaReceber.where("nomecli like ?", "#{params['lala'].upcase}%")
+      @cta_recebers = CtaReceber.where("nomecli like ?", "%#{params['lala'].upcase}%")
            
       
       respond_to do |format|

@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
      # TESTANDO A PRIMEIRA CONSULTA COM BASE NUMA VIEW CRIADA NA MÃO
   def consulta
     
-       @orders = Order.where("nome_cli like ?", "#{params['lala'].upcase}%")
+       @orders = Order.where("nome_cli like ?", "%#{params['lala'].upcase}%")
       # @orders = Order.paginate :per_page => 5, :page => params[:page], :order => 'nome_cli'
                                 
       respond_to do |format|

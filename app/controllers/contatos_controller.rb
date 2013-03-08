@@ -2,7 +2,7 @@ class ContatosController < ApplicationController
   
     # TESTANDO A PRIMEIRA CONSULTA COM BASE NUMA VIEW CRIADA NA MÃO
   def consulta
-      @contatos = Contato.where("nome_completo like ?", "#{params['lala'].upcase}%")
+      @contatos = Contato.where("nome_completo like ?", "%#{params['lala'].upcase}%")
            
                                 
       respond_to do |format|
