@@ -4,6 +4,8 @@
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cadclis_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_cadcli_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path %></li>
+      <li ><%= link_to "#{t("web-app-theme.show", :default => "Gerar Pdf")}", cadclis_path(@cadcli, :format => 'pdf') %></li>
+
     </ul>
   </div>          
   <div class="content">
@@ -31,4 +33,4 @@
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_cadcli_path(@cadcli), :class => "button" %> 
         <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), cadcli_path(@cadcli), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-    <%= link_to "Download do arquivo em (PDF)", cadclis_path(@cadcli, :format => "pdf") %>  
+      
