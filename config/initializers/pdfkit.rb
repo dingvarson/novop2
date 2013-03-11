@@ -1,5 +1,8 @@
 PDFKit.configure do |config|
-config.wkhtmltopdf = 'bin/wkhtmltopdf/wkhtmltopdf.exe'
+#RODANDO O PDF NO HEROKU
+config.wkhtmltopdf = 'bin/wkhtmltopdf/wkhtmltopdf-linux-amd64'
+#RODANDO O PDF LOCALMENTE
+#config.wkhtmltopdf = 'bin/wkhtmltopdf/wkhtmltopdf.exe'
 config.default_options = {
 :page_size => 'Legal',
 :print_media_type => true
