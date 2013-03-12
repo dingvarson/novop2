@@ -1,4 +1,9 @@
 class GerapdfsController < ApplicationController
+  
+  #forçando á ser carregado um outro layout para os relatórios
+  layout 'layout_rpt'
+  
+  
   # GET /gerapdfs
   # GET /gerapdfs.json
   def index

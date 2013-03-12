@@ -1,0 +1,22 @@
+<%= image_tag "web-app-theme/rails.png" %>
+
+
+<h1>COMPROVANTE DE PAGAMENTO</h1>
+<br>
+<h3>Eu, Ademir de Góes Gomes, portador do RG: 30.575.083-5
+Declaro ter recebido a importância de R$  <%= @cadcli.valor %> em depósito bancário de: <%= @cadcli.nomecli %>.
+Referente á taxa de licença de uso do mensal do Software e suporte.
+<br>
+<br>
+<br>
+<br>
+
+São Paulo, <%= DateTime.now.strftime("%d/%m/%Y") %>
+</h3>
+<br>
+<br>
+<br>
+
+A próxima data para pagamento será em: <%= @cadcli.datavencto.strftime("%d/%m/%Y") %>
+      
+          
