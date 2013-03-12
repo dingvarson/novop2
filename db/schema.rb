@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306212557) do
+ActiveRecord::Schema.define(:version => 20130312154705) do
 
   create_table "anotacaos", :force => true do |t|
     t.string   "nome"
@@ -64,6 +64,11 @@ ActiveRecord::Schema.define(:version => 20130306212557) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "gerapdfs", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "items", :force => true do |t|
     t.integer  "quant"
     t.string   "descr"
@@ -85,6 +90,11 @@ ActiveRecord::Schema.define(:version => 20130306212557) do
     t.string   "nome_cli"
     t.string   "end_cli"
     t.string   "fone_cli"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "testes", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -4,7 +4,7 @@
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cadclis_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_cadcli_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path %></li>
-      <li ><%= link_to "#{t("web-app-theme.show", :default => "Gerar Pdf")}", cadclis_path(@cadcli, :format => 'pdf') %></li>
+      <li ><%= link_to "#{t("web-app-theme.show", :default => "Gerar Pdf")}", gerapdf_path(@cadcli, :format => 'pdf') %></li>
 
     </ul>
   </div>          
