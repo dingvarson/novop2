@@ -1,7 +1,7 @@
+<p align="center">
 <%= image_tag "web-app-theme/cabecalho_pdf.jpg" %>
 
-
-<h1>COMPROVANTE DE PAGAMENTO</h1>
+<h1><p align="center">COMPROVANTE DE PAGAMENTO</p></h1>
 <br>
 <h3>Eu, <font color="blue" face="verdana" size="4">Ademir de Góes Gomes</font>, portador do RG: 30.575.083-5
 Declaro ter recebido a importância de <font color="blue" face="verdana" size="4">R$  <%= @cadcli.valor %></font> em depósito bancário de: <font color="blue" face="verdana" size="4"><%= @cadcli.nomecli %></font>.
@@ -17,6 +17,6 @@ São Paulo, <%= DateTime.now.strftime("%d/%m/%Y") %>
 <br>
 <br>
 
-A próxima data para pagamento será em: <%= @cadcli.datavencto.strftime("%d/%m/%Y") %>
+A sua licença de uso do Software terá validade até o dia: <%= @cadcli.datavencto.strftime("%d/%m/%Y") %>
       
-          
+       
