@@ -29,11 +29,12 @@
                     <th>
             <%= t("activerecord.attributes.cadcli.nomecli", :default => t("activerecord.labels.nomecli", :default => "Nome Cliente")) %>
           </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Vencimento")  %></th>
+                              
+                    <th><%= t("web-app-theme.vencto", :default => "Vencimento")  %></th>
                     
                      <th><%= t("web-app-theme.valor", :default => "Valor")  %></th>
                      
-                     <th><%= t("web-app-theme.valor", :default => "Status")  %></th>
+                     <th><%= t("web-app-theme.status", :default => "Status")  %></th>
           <th class="last">&nbsp;</th>
         </tr>
        
@@ -46,6 +47,7 @@
                     <td>
             <%= link_to cadcli.nomecli, cadcli_path(cadcli) %>
           </td>
+                                       	
                     <td>
             <%= cadcli.datavencto.strftime("%d/%m/%Y") %>
              <td>

@@ -7,6 +7,15 @@
     <span class="description">Ex: a simple text</span>
   </div>
 
+  <div class="group">
+    <%= f.label :emailcli, t("activerecord.attributes.cadcli.emailcli", :default => "Email"), :class => :label %>
+    <%= f.text_field :emailcli, :class => 'text_field' %>
+        <span class="description">Informe o email</span>
+    
+   
+    
+  </div>
+
 
   <div class="group">
     <%= f.label :status, t("activerecord.attributes.cadcli.status", :default => "Status"), :class => :label %>

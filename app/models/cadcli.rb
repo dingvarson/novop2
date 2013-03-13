@@ -1,7 +1,7 @@
 class Cadcli < ActiveRecord::Base
-  attr_accessible :id, :nomecli, :status, :valor, :datavencto
+  attr_accessible :id, :nomecli, :status, :valor, :datavencto, :emailcli
   
- validates_presence_of :nomecli, :status, :message => "Preenchimento Obrigatorio"
+ validates_presence_of :nomecli, :status, :emailcli, :message => "Preenchimento Obrigatorio"
  
  #inserindo upcase ao salvar os dados no banco
  before_save :upcase_cadcli
