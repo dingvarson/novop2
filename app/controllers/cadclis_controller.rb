@@ -1,20 +1,6 @@
 class CadclisController < ApplicationController
   
-  #gerando o relatório de clientes
-  def rel_cli
-  end
   
-  #gerando o comprovante de pagamento em PDF  para o cliente
- def gerapdf
- @cadclis = Cadcli.where("nomecli = ?", "#{params[:nomecli]}")
-           
-                                
-      respond_to do |format|
-        format.html #show.html.erb
-        format.json { render json: @cadclis }
-      end
- end
- 
   # GET /cadclis
   # GET /cadclis.json
    def index

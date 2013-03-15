@@ -1,10 +1,22 @@
 Omini::Application.routes.draw do
   
 
+  resources :rpt_clis do
+    collection do
+      get 'rpt_clis'
+      
+    end
+  end
+
   resources :contacts
 
 
-  resources :gerapdfs
+  resources :gerapdfs do
+    collection do
+      get 'sendemail'
+      get 'send_report'
+    end
+  end
 
 
   resources :cta_pagars do
@@ -85,7 +97,6 @@ devise_for :users, :skip => [:registrations]
   collection do
     get 'consulta'
     get 'consul_cli'
-    get 'rel_cli'
     get 'gerapdf'
   end
 end

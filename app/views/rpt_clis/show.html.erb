@@ -5,7 +5,8 @@
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_cadcli_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path %></li>
       <li ><%= link_to "#{t("web-app-theme.show", :default => "Gerar Relatório")}", gerapdf_path(@cadcli) %></li>
-      
+      <li ><%= link_to "#{t("web-app-theme.show", :default => "Gerar ficha")}", rpt_cli_path(@cadcli) %></li>
+
       
           </ul>
   </div>          

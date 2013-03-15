@@ -71,7 +71,7 @@ config.action_mailer.smtp_settings = {
   :enable_starttls_auto => true 
 }
 # Para debug apenas, é melhor que a linha abaixo seja adicionado apenas no ambiente de desenvolvimento
-#config.action_mailer.raise_delivery_errors = true
+config.action_mailer.raise_delivery_errors = true
  
   end
 end

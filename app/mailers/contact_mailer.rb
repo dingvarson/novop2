@@ -3,6 +3,7 @@ class ContactMailer < ActionMailer::Base
  
   def contact_message(contact)
     @contact = contact
-    mail(:to => 'ademir_sapmm@yahoo.com.br', :subject => 'Mensagem de Contato')
+    mail(:to => @contact['email'], :subject => 'Mensagem de Contato')
+  
   end
 end
