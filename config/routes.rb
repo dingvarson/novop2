@@ -3,7 +3,9 @@ Omini::Application.routes.draw do
 
   resources :rpt_clis do
     collection do
-      get 'rpt_clis'
+      get 'rpt_clientes'
+      get 'rpt_fichacli'
+      
       
     end
   end
