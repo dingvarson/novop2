@@ -1,19 +1,26 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+
 <%= link_to image_tag("web-app-theme/icons/pdf.png", :alt => "#{t("web-app-theme.pdf", :default=> "PDF")}") + " " + t("web-app-theme.edit", :default=> ""), rpt_clis_path(:format => 'pdf'), :class => "button" %> 
 
-<p align="center">
+<p align="left">
 <%= image_tag "web-app-theme/cabecalho_pdf.jpg" %>
 
-<h1><font color="silver"><p align="center">COMPROVANTE DE PAGAMENTO</p></font></h1>
+<h1><font color="silver"><p align="left">RELATÓRIO GERAL DE CLIENTES</p></font></h1>
 <br>
 
-
+<div class="inner">
       <table class="table">
+      	
+      	
         <tr>             
           <th class="first">ID</th>
                     <th>
             <%= t("activerecord.attributes.cadcli.nomecli", :default => t("activerecord.labels.nomecli", :default => "Nome Cliente")) %>
           </th>
                               
+                    
                     <th><%= t("web-app-theme.vencto", :default => "Vencimento")  %></th>
                     
                      <th><%= t("web-app-theme.valor", :default => "Valor")  %></th>
@@ -47,4 +54,5 @@
         </tr>          
         <% end -%>
       </table>
-      
+      <br />
+      <p align="left">Total geral R$ <%= @cadcliss %></p> 
