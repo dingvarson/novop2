@@ -3,10 +3,16 @@
   <div class="content">
      <% if user_signed_in? %>
 
-            Logado como: <%= current_user.email %>. Não é você?
-
-            <%= link_to "Encerrar Sessão", logout_path %>
-            <%= link_to "Alterar Senha", edit_user_registration_path %>
+     Logado como: <%= current_user.email %>. Não é você?
+     <div class="block">
+  <h3>Links Uteis</h3>
+  <ul class="navigation">
+    <li><a href="#"><%= link_to "Encerrar Sessão", logout_path %></a></li>
+    <li><a href="#"><%= link_to "Alterar Senha", edit_user_registration_path %></a></li>
+  </ul>
+</div>
+            
+            
 
         <% else %>
        
@@ -33,11 +39,4 @@
 
   <% end %>
   </div>
-</div>
-<div class="block">
-  <h3>Links Uteis</h3>
-  <ul class="navigation">
-    <li><a href="#">Link 1</a></li>
-    <li><a href="#">Link 2</a></li>
-  </ul>
 </div>

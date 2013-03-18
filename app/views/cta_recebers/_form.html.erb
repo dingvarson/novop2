@@ -4,11 +4,8 @@
      
    
    
-   <%= f.collection_select(:nomecli, Cadcli.order('nomecli ASC').all, :nomecli, :nomecli, :prompt => "Selecione o Cliente") %>
-  
-
-   
-  <span class="description">Ex: a simple text</span>
+   <%= f.collection_select(:nomecli, Cadcli.order('nomecli ASC').all, :nomecli, :nomecli, :prompt => "Selecione o Cliente") %> 
+    
   </div>
 
   <div class="group">
