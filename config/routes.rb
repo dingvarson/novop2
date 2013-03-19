@@ -5,8 +5,7 @@ Omini::Application.routes.draw do
     collection do
       get 'rpt_clientes'
       get 'rpt_fichacli'
-      
-      
+                  
     end
   end
 
@@ -17,6 +16,7 @@ Omini::Application.routes.draw do
     collection do
       get 'sendemail'
       get 'send_report'
+      
     end
   end
 

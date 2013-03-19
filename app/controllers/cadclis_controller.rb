@@ -1,6 +1,5 @@
 class CadclisController < ApplicationController
-  
-  
+   
   # GET /cadclis
   # GET /cadclis.json
    def index

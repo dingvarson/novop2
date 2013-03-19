@@ -8,9 +8,6 @@ class RptClisController < ApplicationController
    
    render :layout => 'rpt_cliente/rpt_fichacli'   
      
-      
-    
-   
   end
   
  #ACTION QUE TRAZ TODOS OS CLIENTES CADASTRADOS
