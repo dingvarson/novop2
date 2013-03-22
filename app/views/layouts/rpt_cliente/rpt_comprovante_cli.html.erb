@@ -1,5 +1,5 @@
        
-<%= link_to image_tag("web-app-theme/icons/pdf.png", :alt => "#{t("web-app-theme.pdf", :default=> "PDF")}") + " " + t("web-app-theme.edit", :default=> ""), gerapdf_path(@cadcli, :format => 'pdf'), :class => "button" %> 
+<%= link_to image_tag("web-app-theme/icons/pdf.png", :alt => "#{t("web-app-theme.pdf", :default=> "PDF")}") + " " + t("web-app-theme.edit", :default=> ""), chama_rpt_gerapdf_path(@cadcli, :format => 'pdf'), :method => "get", :class => "button" %> 
 
 <p align="center">
 <%= image_tag "web-app-theme/cabecalho_pdf.jpg" %>

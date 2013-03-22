@@ -4,11 +4,11 @@
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cadclis_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_cadcli_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path %></li>
-      <li ><%= link_to "#{t("web-app-theme.show", :default => "Gerar Comprovante")}", gerapdf_path(@cadcli), :confirm => "#{t("web-app-theme.confirm", :default => "Você confirma o Recebimento do cliente: #{@cadcli.nomecli}?")}" %> </li>
+      <li ><%= link_to "#{t("web-app-theme.show", :default => "Efetuar Baixa")}", gerapdf_path(@cadcli), :confirm => "#{t("web-app-theme.confirm", :default => "Você confirma o Recebimento do cliente: #{@cadcli.nomecli}?")}" %> </li>
       
-      
-            
-      
+      <li> <%= link_to "Gerar Comprovante", chama_rpt_gerapdf_path(@cadcli) %> </li>
+     
+     
       
           </ul>
   </div>          
