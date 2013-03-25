@@ -46,11 +46,7 @@
               <td>
             <%= cadcli.status %>
           </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path(cadcli) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_cadcli_path(cadcli) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", cadcli_path(cadcli), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
+         
         </tr>          
         <% end -%>
       </table>
