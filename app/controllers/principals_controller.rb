@@ -10,4 +10,11 @@ class PrincipalsController < ApplicationController
       format.json { render json: @cadclis }
 end
 end
+
+def financeiro
+end
+
+def cadastro
+  
+end
 end

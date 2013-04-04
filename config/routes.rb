@@ -109,6 +109,13 @@ devise_for :users, :skip => [:registrations]
   end
 end
 
+resources :principals do
+  collection do
+    get 'financeiro'
+    get 'cadastro'
+  end
+end
+
 root :to => "principals#show"
   # The priority is based upon order of creation:
   # first created -> highest priority.
