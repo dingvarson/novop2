@@ -6,6 +6,7 @@ class CadclisController < ApplicationController
     
    @cadclis = Cadcli.order("nomecli").all
   # @cadclis = Cadcli.paginate :per_page => 5, :page => params[:page] 
+  
    
   @cadclis = Cadcli.paginate :per_page => 5, :page => params[:page], :order => 'nomecli'
      
