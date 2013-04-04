@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130314211309) do
 
-  create_table "anotacaos", :force => true do |t|
-    t.string   "nome"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "cadclis", :force => true do |t|
     t.string   "nomecli"
     t.string   "status"
@@ -105,11 +99,6 @@ ActiveRecord::Schema.define(:version => 20130314211309) do
   end
 
   create_table "rpt_clis", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "testes", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
