@@ -1,4 +1,8 @@
 class AnotacaosController < ApplicationController
+  
+#filtro para não deixar o acessar a URL sem estar logado
+  before_filter :require_login
+
   # GET /anotacaos
   # GET /anotacaos.json
   def index

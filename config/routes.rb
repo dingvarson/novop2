@@ -113,6 +113,7 @@ resources :principals do
   collection do
     get 'financeiro'
     get 'cadastro'
+    get 'show'
   end
 end
 

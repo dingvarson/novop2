@@ -1,6 +1,7 @@
 <div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
+	 	
+	  <div class="secondary-navigation">
+	     <ul class="wat-cf">
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", cta_recebers_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_cta_receber_path %></li>
     </ul>
@@ -8,7 +9,9 @@
   <div class="content">          
     <h2 class="title"><%= t("web-app-theme.all", :default => "")  %> 
     	<form accept-charset="UTF-8" action="/cta_recebers/consulta" method="get">
-  <label>Nome do Cliente: 
+  <label>
+
+  	Nome do Cliente: 
     <input type="text" name="lala" OnKeyUp="this.style.textTransform='uppercase'" id="" />
       
   </label>

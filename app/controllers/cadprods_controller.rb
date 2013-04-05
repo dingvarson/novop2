@@ -1,5 +1,7 @@
 class CadprodsController < ApplicationController
  
+  before_filter :require_login
+ 
  # query que localiza o produto pelo ID
   def consulta_prod
   @cadprod = Cadprod.find(params['lala'])         

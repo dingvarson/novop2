@@ -1,4 +1,8 @@
 class MenusController < ApplicationController
+
+#filtro para não deixar o acessar a URL sem estar logado
+  before_filter :require_login
+
   # GET /menus
   # GET /menus.json
   def index

@@ -3,8 +3,7 @@
   <div class="content">
      <% if user_signed_in? %>
 
-            Logado como: <%= current_user.email %>. Não é você?
-
+             Logado como: <br><b><%= current_user.email %> -</b> Não é você?</br>
             <%= link_to "Encerrar Sessão", logout_path %>
 
         <% else %>

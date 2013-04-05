@@ -1,5 +1,5 @@
 class CadclisController < ApplicationController
-   
+    before_filter :require_login
   # GET /cadclis
   # GET /cadclis.json
    def index

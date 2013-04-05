@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-   
+   #filtro para não deixar o acessar a URL sem estar logado
+  before_filter :require_login
   
    def create
      #linha inserida para trocar virgula por ponto

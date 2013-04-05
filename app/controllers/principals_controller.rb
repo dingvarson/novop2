@@ -1,4 +1,12 @@
 class PrincipalsController < ApplicationController
+  
+  
+  
+  def index
+   redirect_to show_principals_url
+  end
+  
+  
   def show
     #esta query serve para trazer todos os clientes que não efetuaram
     # o pagamento da mensalidade e o status é diferente de SEM CONTRATO

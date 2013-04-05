@@ -1,4 +1,8 @@
 class CtaPagarsController < ApplicationController
+ 
+  #filtro para não deixar o acessar a URL sem estar logado
+  before_filter :require_login
+ 
   # GET /cta_pagars
   # GET /cta_pagars.json
   def index

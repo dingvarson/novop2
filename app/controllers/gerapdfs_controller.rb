@@ -1,6 +1,7 @@
  #encoding: utf-8
 class GerapdfsController < ApplicationController
-
+#filtro para não deixar o acessar a URL sem estar logado
+  before_filter :require_login
  
   def show
     

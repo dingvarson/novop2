@@ -1,5 +1,8 @@
 class ContatosController < ApplicationController
   
+  #filtro para não deixar o acessar a URL sem estar logado
+  before_filter :require_login
+  
     # TESTANDO A PRIMEIRA CONSULTA COM BASE NUMA VIEW CRIADA NA MÃO
   def consulta
       @contatos = Contato.where("nome_completo like ?", "%#{params['lala'].upcase}%")
