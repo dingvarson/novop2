@@ -5,7 +5,7 @@
 <p align="center">
 <%= image_tag "web-app-theme/cabecalho_pdf.jpg" %>
 
-<h1><font color="silver"><p align="center">ORDEM DE SERVIÇO <font color="red">Nº <%= @order.id%></font></p></font></h1>
+<h2><font color="silver"><p align="center">ORDEM DE SERVIÇO <font color="red">Nº <%= @order.id%></font></p></font></h2>
          
   <div class="content">
   	<h2 class="title"><%= t("web-app-theme.new", :default => "Dados do Cliente:")%></h2>
@@ -31,7 +31,7 @@
 </p>
 
 <p>
-  <b><%= t("activerecord.attributes.cadcli.data_venda", :default => t("activerecord.labels.end_cli", :default => "Data")) %>:</b>
+  <b><%= t("activerecord.attributes.cadcli.data_venda", :default => t("activerecord.labels.end_cli", :default => "Cliente desde")) %>:</b>
 
   <%= @order.created_at.strftime("%d/%m/%Y") %>
  
