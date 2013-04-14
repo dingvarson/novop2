@@ -5,7 +5,6 @@
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_cadcli_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path %></li>
       <li ><%= link_to "#{t("web-app-theme.show", :default => "Efetuar Baixa")}", gerapdf_path(@cadcli), :confirm => "#{t("web-app-theme.confirm", :default => "Você confirma o Recebimento do cliente: #{@cadcli.nomecli}?")}" %> </li>
-      
       <li> <%= link_to "Gerar Comprovante", chama_rpt_gerapdf_path(@cadcli) %> </li>
      
           
@@ -46,4 +45,10 @@
 
         
         <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), cadcli_path(@cadcli), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-      
+     
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%> 

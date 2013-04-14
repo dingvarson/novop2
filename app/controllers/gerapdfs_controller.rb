@@ -2,6 +2,21 @@
 class GerapdfsController < ApplicationController
 #filtro para não deixar o acessar a URL sem estar logado
   before_filter :require_login
+  
+  
+   #GERANDO O PDF DO COMPROVANTE DA ORDEM DE SERVIÇO
+  def rpt_order
+    
+   @order = Order.find(params[:id])
+   
+   #Fazendo a somatoria de todos os itens na ordem de serviço
+   @items = Item.sum(:val_total, :conditions => {:order_id => [@order]})
+   
+   render :layout => 'rpt_cliente/rpt_order'
+  
+  end
+  
+  
  
   def show
     
@@ -26,8 +41,11 @@ class GerapdfsController < ApplicationController
    @cadcli = Cadcli.find(params[:id])
    @datanova = @cadcli.datavencto
    render :layout => 'rpt_cliente/rpt_comprovante_cli'
-  
   end
+  
+  
+ 
+  
 end
   
   

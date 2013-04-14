@@ -1,17 +1,14 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", orders_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_order_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Visualizar")}", order_path %></li>
-      <li> <%= link_to "Gerar Comprovante", rpt_order_gerapdf_path(@order) %> </li>
-      
+       
+<%= link_to image_tag("web-app-theme/icons/pdf.png", :alt => "#{t("web-app-theme.pdf", :default=> "PDF")}") + " " + t("web-app-theme.edit", :default=> ""), rpt_order_gerapdf_path(@order, :format => 'pdf'), :method => "get", :class => "button" %> 
 
-                 
-    </ul>
-  </div>          
+
+<p align="center">
+<%= image_tag "web-app-theme/cabecalho_pdf.jpg" %>
+
+<h1><font color="silver"><p align="center">ORDEM DE SERVIÇO</p></font></h1>
+         
   <div class="content">
-  	<h2 class="title"><%= t("web-app-theme.new", :default => "Dados do Cliente")%></h2>
+  	<h2 class="title"><%= t("web-app-theme.new", :default => "Dados do Cliente:")%></h2>
     <div class="inner">
     	
    	
@@ -57,12 +54,9 @@
           <th class="last">&nbsp;</th>
         </tr>
         
-        <div class="wat-cf">
-        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_order_path(@order), :class => "button" %> 
-        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Voltar")}") + " " + t("web-app-theme.edit", :default=> "Voltar"), orders_path, :class => "button" %> 
-</div>  
+        
                
-        <h2>Items:</h2>
+        <h2>Descrição dos Serviços:</h2>
 <% @order.items.each do |item| %>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
@@ -79,18 +73,28 @@
             <%= item.val_total %>
           </td>
           <td class="last">
-           <%= link_to "#{t("web-app-theme.show", :default => "Editar")}", edit_item_path(item) %>
-           <%= link_to "#{t("web-app-theme.edit", :default => "Excluir")}", item, method: :delete, :order_id => item, data: { confirm: 'Voce tem Certeza?' } %>	
-                   </td>
+                       </td>
           </tr>          
         <% end -%>
       </table>
 
+<br>
 
+ <% if @items.nil? %>
+    <h3>Total Geral R$ 0,00</h3>
+    <% else %>
+    <h3>Total Geral R$ <%= @items %></h3>
+    <% end %>
 
-    
-    </div>
- 
-</div>
-</div>
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+São Paulo, <%= DateTime.now.strftime("%d/%m/%Y") %> 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font size="5">Ademir de Góes Gomes</font> 	

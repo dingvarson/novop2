@@ -11,17 +11,18 @@ Omini::Application.routes.draw do
 
   resources :contacts
 
-  
-  
     
   resources :gerapdfs do
     member do
     get 'chama_rpt'
+    get 'rpt_order'
   end
   collection do
       get 'sendemail'
       get 'send_report'
       get 'chama_rpt'
+      get 'rpt_order'
+     
   end
     
   end
