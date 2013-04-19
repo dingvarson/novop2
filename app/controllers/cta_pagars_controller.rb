@@ -1,7 +1,32 @@
+ #encoding: utf-8
 class CtaPagarsController < ApplicationController
  
   #filtro para não deixar o acessar a URL sem estar logado
   before_filter :require_login
+  
+  
+  #efetuando a baixa de uma conta a pagar, alterando o status e a data de pagamento
+   def pagamento
+    
+   @cta_pagars = CtaPagar.find(params[:id])
+   @dataatual = Time.now
+   
+   #SE O STATUS NÃO ESTIVER COMO 'NÃO PAGO' NÃO SERÁ POSSIVEL EFETUAR O PAGAMENTO
+    if @cta_pagars.status == "Á PAGAR"
+    CtaPagar.update(@cta_pagars.id, :status => 'PAGO', :data_pagto => @dataatual)
+  
+  
+   #recarregando a view com a data e o status atualizado
+   @cta_pagars = CtaPagar.find(params[:id])
+    redirect_to cta_pagar_path(@cta_pagars), :flash => { :alert => "BAIXA REALIZADA COM EXITO!" }
+
+    else
+    redirect_to cta_pagar_path(@cta_pagars), :flash => { :alert => "***Ocorreu um erro*** O Status já está como PAGO para o Pagamento: #{@cta_pagars.descricao} !" }
+    end
+    end
+  
+  
+  
  
   # GET /cta_pagars
   # GET /cta_pagars.json
@@ -58,6 +83,7 @@ class CtaPagarsController < ApplicationController
     @cta_pagar = CtaPagar.new(params[:cta_pagar])
 
     respond_to do |format|
+      @cta_pagar.status = 'Á PAGAR'
       if @cta_pagar.save
         format.html { redirect_to @cta_pagar, notice: 'Cta pagar was successfully created.' }
         format.json { render json: @cta_pagar, status: :created, location: @cta_pagar }

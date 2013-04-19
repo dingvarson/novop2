@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314211309) do
+ActiveRecord::Schema.define(:version => 20130418222702) do
 
   create_table "cadclis", :force => true do |t|
     t.string   "nomecli"
@@ -58,14 +58,18 @@ ActiveRecord::Schema.define(:version => 20130314211309) do
     t.float    "valor"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "status"
+    t.date     "data_pagto"
   end
 
   create_table "cta_recebers", :force => true do |t|
     t.string   "nomecli"
     t.string   "descr_serv"
     t.float    "valor"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "status"
+    t.date     "data_recebimento"
   end
 
   create_table "gerapdfs", :force => true do |t|

@@ -4,6 +4,9 @@
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", cta_recebers_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_cta_receber_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", cta_receber_path %></li>
+      <li><%= link_to "Efetuar Baixa", recebimento_cta_receber_path(@cta_receber), :confirm => "#{t("web-app-theme.confirm", :default => "Você confirma o Recebimento de: #{@cta_receber.descr_serv}?")}" %> </li> </li>
+   
+    
     </ul>
   </div>          
   <div class="content">

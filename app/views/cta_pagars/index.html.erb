@@ -25,7 +25,11 @@
                     <th>
             <%= t("activerecord.attributes.cta_pagar.descricao", :default => t("activerecord.labels.descricao", :default => "Descrição")) %>
           </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Vencimento")  %></th>
+            <th><%= t("web-app-theme.created_at", :default => "Vencimento")  %></th>
+                    
+            <th><%= t("web-app-theme.status", :default => "Status")  %></th>
+
+                    
           <th class="last">&nbsp;</th>
         </tr>
         <% @cta_pagars.each do |cta_pagar| -%>
@@ -39,6 +43,11 @@
                     <td>
             <%= cta_pagar.datavencto.strftime("%d/%m/%Y") %>
           </td>
+          
+                  <td>
+            <%= cta_pagar.status %>
+          </td>
+          
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", cta_pagar_path(cta_pagar) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_cta_pagar_path(cta_pagar) %> |

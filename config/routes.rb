@@ -29,8 +29,12 @@ Omini::Application.routes.draw do
 
 
   resources :cta_pagars do
+    member do
+      get 'pagamento'
+    end
     collection do 
       get 'consulta'
+       get 'pagamento'
     end
   end
 
@@ -78,9 +82,13 @@ end
 
   #consulta de contas á receber pela descrição
   resources :cta_recebers do
+    member do
+      get 'recebimento'
+    end
   collection do
     get 'consulta'
     get 'consul_cli'
+    get 'recebimento'
    
   end
 end
@@ -107,6 +115,7 @@ devise_for :users, :skip => [:registrations]
     get 'consulta'
     get 'consul_cli'
     get 'gerapdf'
+   
   end
 end
 

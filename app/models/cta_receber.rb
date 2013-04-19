@@ -1,5 +1,5 @@
 class CtaReceber < ActiveRecord::Base
-  attr_accessible :descr_serv, :nomecli, :valor
+  attr_accessible :descr_serv, :nomecli, :valor, :status, :data_recebimento
   
   
   validates_presence_of :descr_serv, :nomecli, :valor

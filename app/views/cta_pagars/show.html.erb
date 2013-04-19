@@ -4,6 +4,9 @@
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", cta_pagars_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_cta_pagar_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", cta_pagar_path %></li>
+      <li><%= link_to "Efetuar Baixa", pagamento_cta_pagar_path(@cta_pagar), :confirm => "#{t("web-app-theme.confirm", :default => "Você confirma o Pagamento de: #{@cta_pagar.descricao}?")}" %> </li> </li>
+
+
     </ul>
   </div>          
   <div class="content">
@@ -27,6 +30,11 @@
         <p>
           <b><%= t("activerecord.attributes.cta_pagar.valor", :default => t("activerecord.labels.valor", :default => "Valor")) %>:</b>
           <%= @cta_pagar.valor %>
+        </p>
+        
+        <p>
+          <b><%= t("activerecord.attributes.cta_pagar.valor", :default => t("activerecord.labels.status", :default => "Status")) %>:</b>
+          <%= @cta_pagar.status %>
         </p>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_cta_pagar_path(@cta_pagar), :class => "button" %> 

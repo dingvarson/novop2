@@ -1,7 +1,31 @@
+ #encoding: utf-8
 class CtaRecebersController < ApplicationController
  
   #filtro para não deixar o acessar a URL sem estar logado
   before_filter :require_login
+  
+  
+   #efetuando a baixa de uma conta a receber, alterando o status e a data de recebimento
+   def recebimento
+    
+   @cta_recebers = CtaReceber.find(params[:id])
+   @dataatual = Time.now
+   
+   #SE O STATUS NÃO ESTIVER COMO 'NÃO PAGO' NÃO SERÁ POSSIVEL EFETUAR O PAGAMENTO
+    if @cta_recebers.status == "Á RECEBER"
+    CtaReceber.update(@cta_recebers.id, :status => 'RECEBIDO', :data_recebimento => @dataatual)
+  
+  
+   #recarregando a view com a data e o status atualizado
+   @cta_recebers = CtaReceber.find(params[:id])
+    redirect_to cta_receber_path(@cta_recebers), :flash => { :alert => "BAIXA REALIZADA COM EXITO!" }
+
+    else
+    redirect_to cta_receber_path(@cta_recebers), :flash => { :alert => "***Ocorreu um erro*** O Status já está como RECEBIDO para o Pagamento: #{@cta_recebers.descr_serv} !" }
+    end
+    end
+  
+  
  
   # GET /cta_recebers
   # GET /cta_recebers.json
@@ -73,13 +97,9 @@ class CtaRecebersController < ApplicationController
   # POST /cta_recebers
   # POST /cta_recebers.json
   def create
-    
-       
-    @cta_receber = CtaReceber.new(params[:cta_receber])
-    
-    
-
-    respond_to do |format|
+       @cta_receber = CtaReceber.new(params[:cta_receber])
+          respond_to do |format|
+             @cta_receber.status = 'Á RECEBER'
       if @cta_receber.save
         format.html { redirect_to @cta_receber, notice: 'Conta Criada com Exito.' }
         format.json { render json: @cta_receber, status: :created, location: @cta_receber }
