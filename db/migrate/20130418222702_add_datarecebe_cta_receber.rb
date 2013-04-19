@@ -1,6 +1,6 @@
 class AddDatarecebeCtaReceber < ActiveRecord::Migration
   def up
-    add_column :cta_recebers, :data_recebimento, :date, :status
+    add_column :cta_recebers, :data_recebimento, :date
   end
 
   def down
