@@ -11,11 +11,19 @@
     <%= f.label :emailcli, t("activerecord.attributes.cadcli.emailcli", :default => "Email"), :class => :label %>
     <%= f.text_field :emailcli, :class => 'text_field' %>
         <span class="description">Informe o email</span>
-    
+   </div>
    
-    
-  </div>
-
+   <div class="group">
+    <%= f.label :end_c, t("activerecord.attributes.cadcli.end_c", :default => "Endereço"), :class => :label %>
+    <%= f.text_field :end_c, :class => 'text_field' %>
+        <span class="description">Informe o Endereço</span>
+   </div>
+   
+   <div class="group">
+    <%= f.label :fone_c, t("activerecord.attributes.cadcli.fone_c", :default => "Fone"), :class => :label %>
+    <%= f.text_field :fone_c, :class => 'text_field' %>
+        <span class="description">Informe o Telefone</span>
+   </div>
 
   <div class="group">
     <%= f.label :status, t("activerecord.attributes.cadcli.status", :default => "Status"), :class => :label %>
