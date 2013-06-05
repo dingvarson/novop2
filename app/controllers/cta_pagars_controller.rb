@@ -32,7 +32,10 @@ class CtaPagarsController < ApplicationController
   # GET /cta_pagars.json
   def index
     @cta_pagars = CtaPagar.all
-
+    
+    @cta_pagars = CtaPagar.paginate :per_page => 5, :page => params[:page], :order => 'nomeforn'
+     
+   
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cta_pagars }

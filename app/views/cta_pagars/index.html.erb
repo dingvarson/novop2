@@ -66,7 +66,8 @@
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>
-        
+         <%= will_paginate @cta_pagars %>
+         Total Geral R$<%= @cta_pagars = CtaPagar.sum(:valor)%>
       </div>
     </div>
   </div>
