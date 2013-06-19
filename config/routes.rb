@@ -47,7 +47,7 @@ Omini::Application.routes.draw do
     get 'consulta'
     get 'consul_cli'
    get 'consuldata'
-   
+   get 'testecombo'
   end
 end
   

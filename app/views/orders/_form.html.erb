@@ -4,6 +4,7 @@
    <%= f.collection_select(:nome_cli, Cadcli.order('nomecli ASC').all, :nomecli, :nomecli, :prompt => "Selecione o Cliente") %>
  
   </div>
+   	
   
   <div class="field">
     <%= f.label :end_cli, t("activerecord.attributes.order.end_cli", :default => "Endereço"), :class => :label %>
@@ -12,7 +13,7 @@
   
   <div class="field">
     <%= f.label :fone_cli, t("activerecord.attributes.order.fone_cli", :default => "Fone"), :class => :label %>
-    <%= f.text_field :fone_cli %>
+    <%= f.text_field :fone_cli, :id => 'fone' %>
   </div>
   <p>
   

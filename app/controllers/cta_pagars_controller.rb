@@ -27,6 +27,7 @@ class CtaPagarsController < ApplicationController
   
   
   
+  
  
   # GET /cta_pagars
   # GET /cta_pagars.json
