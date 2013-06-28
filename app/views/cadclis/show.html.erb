@@ -36,7 +36,12 @@
           <%= @cadcli.status %>
         </p>
 
+         <p>
+          <b><%= t("activerecord.attributes.cadcli.descr_serv", :default => t("activerecord.labels.descr_serv", :default => "Descrição do serviço")) %>:</b>
+          <%= @cadcli.descr_serv %>
+        </p>
         <p>
+        	
           <b><%= t("activerecord.attributes.cadcli.valor", :default => t("activerecord.labels.valor", :default => "Valor")) %>:</b>
           <%= @cadcli.valor %>
         </p>

@@ -25,14 +25,17 @@
         <span class="description">Informe o Telefone</span>
    </div>
 
-  <div class="group">
+   <div class="group">
     <%= f.label :status, t("activerecord.attributes.cadcli.status", :default => "Status"), :class => :label %>
     <%= f.select :status, options_for_select([["PAGO", "PAGO"], ["NÃO PAGO", "NÃO PAGO"], ["SEM CONTRATO", "SEM CONTRATO"]]) %>
     <span class="description">Selecione uma opção</span>
-    
+   </div>
    
-    
-  </div>
+   <div class="group">
+    <%= f.label :descr_serv, t("activerecord.attributes.cadcli.descr_serv", :default => "Descrição do Serviço"), :class => :label %>
+    <%= f.text_field :descr_serv, :class => 'text_field' %>
+    <span class="description">Informe a Descrição do Serviço</span>
+   </div>
 
   <div class="group">
     <%= f.label :valor, t("activerecord.attributes.cadcli.valor", :default => "Valor"), :class => :label %>
