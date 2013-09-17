@@ -24,7 +24,7 @@ class GerapdfsController < ApplicationController
    
    #SE O STATUS NÃO ESTIVER COMO 'NÃO PAGO' NÃO SERÁ POSSIVEL EFETUAR O PAGAMENTO
    #if @cadcli.status == "NÃO PAGO" or @cadcli.status == "SEM CONTRATO"
-    @datanova = @cadcli.datavencto + 1.month
+   @datanova = @cadcli.datavencto + 1.month
    Cadcli.update(@cadcli.id, :status => 'PAGO', :datavencto => @datanova)
    #recarregando a view com a data e o status atualizado
    @cadcli = Cadcli.find(params[:id])
