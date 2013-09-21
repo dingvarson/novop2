@@ -7,8 +7,11 @@ gem 'rails', '3.2.11'
 
 gem 'pg'
 
-gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+#gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'devise', '~> 2.2.3'
 
+gem 'thin'
+gem 'pry'
 
 
 # gem necessária para autenticação de usuário
