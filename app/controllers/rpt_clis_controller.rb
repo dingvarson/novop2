@@ -16,7 +16,7 @@ class RptClisController < ApplicationController
   #layout 'rpt_cliente/rpt_clientes', :except => :show
   
   def index
-   @cadclis = Cadcli.order("datavencto").all
+   @cadclis = Cadcli.order("status, datavencto").all
   
    #somatoria em reais de clientes fixos mensal
    @cadcliss = Cadcli.sum(:valor)
