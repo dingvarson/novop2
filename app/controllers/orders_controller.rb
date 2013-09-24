@@ -4,6 +4,30 @@ class OrdersController < ApplicationController
   before_filter :require_login
   
   
+  
+  
+   #''''''''''''DANDO BAIXA NA O.S. E ENVIANDO OS VALORES PARA O CTA RECEBER
+  def baixa_os
+    
+   @order = Order.find(params[:id])
+   
+   #SE O STATUS NÃO ESTIVER COMO 'NÃO PAGO' NÃO SERÁ POSSIVEL EFETUAR O PAGAMENTO
+   #if @cadcli.status == "NÃO PAGO" or @cadcli.status == "SEM CONTRATO"
+   @novostatus = 'RECEBIDA'
+   Order.update(@order.id, :status => @novostatus)
+   #recarregando a view com o status atualizado
+   @order = Order.find(params[:id])
+    redirect_to order_path(@order), :flash => { :alert => "O.S BAIXADA COM EXITO!" }
+ 
+    end
+  
+  #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  
+  
+  
+  
+  
+  
   # QUERY POR DATA
   def consuldata
     
@@ -92,14 +116,21 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    
     @order = Order.new(params[:order])
 
     respond_to do |format|
       if @order.save
-         
+      
         
         format.html { redirect_to @order, notice: 'O.S. criada com Exito.' }
+        
+        #inserindo o status Á RECEBER, na O.S.
+        Order.update(@order.id, :status => 'A RECEBER')
+
         format.json { render json: @order, status: :created, location: @order }
+      
+   
       else
         format.html { render action: "new" }
         format.json { render json: @order.errors, status: :unprocessable_entity }

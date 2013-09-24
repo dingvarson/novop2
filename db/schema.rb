@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130628184323) do
+ActiveRecord::Schema.define(:version => 20130923193217) do
 
   create_table "cadclis", :force => true do |t|
     t.string   "nomecli"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20130628184323) do
     t.string   "fone_cli"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "status"
   end
 
   create_table "rpt_clis", :force => true do |t|

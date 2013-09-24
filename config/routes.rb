@@ -16,13 +16,14 @@ Omini::Application.routes.draw do
     member do
     get 'chama_rpt'
     get 'rpt_order'
+    get 'baixa_os'
   end
   collection do
       get 'sendemail'
       get 'send_report'
       get 'chama_rpt'
       get 'rpt_order'
-     
+      get 'baixa_os'
   end
     
   end
