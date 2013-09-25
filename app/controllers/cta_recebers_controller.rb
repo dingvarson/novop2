@@ -12,7 +12,7 @@ class CtaRecebersController < ApplicationController
    @dataatual = Time.now
    
    #SE O STATUS NÃO ESTIVER COMO 'NÃO PAGO' NÃO SERÁ POSSIVEL EFETUAR O PAGAMENTO
-    if @cta_recebers.status == "Á RECEBER"
+    if @cta_recebers.status == "A RECEBER"
     CtaReceber.update(@cta_recebers.id, :status => 'RECEBIDO', :data_recebimento => @dataatual)
   
   
