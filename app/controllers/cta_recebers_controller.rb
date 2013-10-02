@@ -5,6 +5,46 @@ class CtaRecebersController < ApplicationController
   before_filter :require_login
   
   
+  
+
+  # GET /cta_recebers/1
+  # GET /cta_recebers/1.json
+  def show
+    @cta_receber = CtaReceber.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @cta_receber }
+    end
+  end
+
+  
+  
+  # QUERY POR DATA
+  def consuldata
+    
+    #tratamento de erro para o caso de nõo informar as datas
+    if params['data1'].blank? or params['data2'].blank? then
+    'Order was successfully updated.' 
+    else
+    
+    
+  @cta_recebers = CtaReceber.find(:all, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
+  
+  #somando tudo que tem no periodo informado pela consulta
+  @somatoria = CtaReceber.sum(:valor, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
+  
+    respond_to do |format|
+    format.html #show.html.erb
+    format.json { render json: @cta_recebers }
+  
+               end
+ 
+ end
+ end
+ #__________________________________________________________________________
+  
+   
    #efetuando a baixa de uma conta a receber, alterando o status e a data de recebimento
    def recebimento
     
@@ -26,7 +66,6 @@ class CtaRecebersController < ApplicationController
     end
   
   
- 
   # GET /cta_recebers
   # GET /cta_recebers.json
   
@@ -57,26 +96,19 @@ class CtaRecebersController < ApplicationController
   
   
   def consul_cli
+    @cta_recebers = CtaReceber.where("status ==", "Á RECEBER")
+           
+      
+      respond_to do |format|
+        format.html #show.html.erb
+        format.json { render json: @cta_recebers }
+      end
      
   end 
   #--------------------------------------------------------------  
  
 
  
-
-  # GET /cta_recebers/1
-  # GET /cta_recebers/1.json
-  def show
-    @cta_receber = CtaReceber.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @cta_receber }
-    end
-  end
-
-  
-
   # GET /cta_recebers/new
   # GET /cta_recebers/new.json
   

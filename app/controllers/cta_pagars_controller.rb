@@ -5,6 +5,39 @@ class CtaPagarsController < ApplicationController
   before_filter :require_login
   
   
+  
+  # QUERY POR DATA
+  def consuldata
+    
+    #tratamento de erro para o caso de nõo informar as datas
+    if params['data1'].blank? or params['data2'].blank? then
+    'Order was successfully updated.' 
+    else
+    
+    
+  @cta_pagars = CtaPagar.find(:all, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
+  
+  #somando tudo que tem no periodo informado pela consulta
+  @somatoria = CtaPagar.sum(:valor, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
+  
+    respond_to do |format|
+    format.html #show.html.erb
+    format.json { render json: @cta_recebers }
+  
+               end
+ 
+ end
+ end
+ #__________________________________________________________________________
+  
+  
+  
+  
+  
+  
+  
+  
+  
   #efetuando a baixa de uma conta a pagar, alterando o status e a data de pagamento
    def pagamento
     

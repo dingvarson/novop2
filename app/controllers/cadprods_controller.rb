@@ -8,11 +8,21 @@ class CadprodsController < ApplicationController
                     
       respond_to do |format|
         format.html #show.html.erb
-        format.json { render json: @cadprods }
+        format.json { render json: @cadprod }
       end
     end
   
-    def consul_cli
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  def consul_cli
      
   end 
  

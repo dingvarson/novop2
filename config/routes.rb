@@ -36,6 +36,7 @@ Omini::Application.routes.draw do
     collection do 
       get 'consulta'
        get 'pagamento'
+       get 'consuldata'
     end
   end
 
@@ -85,12 +86,13 @@ end
   resources :cta_recebers do
     member do
       get 'recebimento'
+      get 'consuldata'
     end
   collection do
     get 'consulta'
     get 'consul_cli'
     get 'recebimento'
-   
+    get 'consuldata'
   end
 end
 
