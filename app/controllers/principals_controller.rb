@@ -27,6 +27,9 @@ def financeiro
 end
 
 def cadastro
-  
 end
+
+def painel
+end
+
 end

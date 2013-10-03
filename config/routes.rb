@@ -100,6 +100,8 @@ end
 
 
 devise_for :users
+
+ resources :users 
   
   resources :menus
   
@@ -126,6 +128,7 @@ resources :principals do
   collection do
     get 'financeiro'
     get 'cadastro'
+    get 'painel'
     get 'show'
   end
 end
