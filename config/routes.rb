@@ -114,7 +114,6 @@ end
 devise_for :users, :skip => [:registrations]
 
 
-
  resources :cadclis do
   collection do
     get 'consulta'

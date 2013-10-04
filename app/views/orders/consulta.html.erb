@@ -31,6 +31,9 @@
                      <th><%= t("web-app-theme.valor", :default => "Fone")  %></th>
                      
                      <th><%= t("web-app-theme.valor", :default => "Criada em")  %></th>
+         
+         <th><%= t("web-app-theme.valor", :default => "Status")  %></th>
+
           <th class="last">&nbsp;</th>
         </tr>
         
@@ -53,7 +56,13 @@
             <%= order.fone_cli %>
               <td>
             <%= order.created_at.strftime("%d/%m/%Y") %>
-          </td>
+            </td>
+            <td>
+            <%= order.status %>
+            	
+            </td>
+            
+          
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", order_path(order) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_order_path(order) %> |

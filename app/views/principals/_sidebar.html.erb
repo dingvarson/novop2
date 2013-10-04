@@ -19,6 +19,7 @@
       
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
  
+ 
   <div><%= f.label :email %><br />
   <%= f.collection_select(:email, User.order('email ASC').all, :email, :email, :prompt => "Selecione o Usuário") %>
   
