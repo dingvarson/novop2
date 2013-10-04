@@ -46,7 +46,7 @@
             <%= link_to cadcli.nomecli, cadcli_path(cadcli) %>
           </td>
                     <td>
-            <%= cadcli.created_at %>
+            <%= cadcli.created_at.strftime("%d/%m/%Y") %>
              <td>
             <%= cadcli.valor %>
               <td>

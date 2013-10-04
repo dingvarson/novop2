@@ -28,6 +28,8 @@
                     <th><%= t("web-app-theme.created_at", :default => "Criado em")  %></th>
                     
                     <th><%= t("web-app-theme.valor", :default => "Valor")  %></th>
+                    
+                    <th><%= t("web-app-theme.valor", :default => "Status")  %></th>
           <th class="last">&nbsp;</th>
         </tr>
          <% if @cta_recebers.blank? then %>
@@ -43,10 +45,14 @@
             <%= link_to cta_receber.nomecli, cta_receber_path(cta_receber) %>
           </td>
                     <td>
-            <%= cta_receber.created_at %>
+            <%= cta_receber.created_at.strftime("%d/%m/%Y") %>
           </td>
           <td>
             <%= cta_receber.valor %>
+          </td>
+          
+          <td>
+            <%= cta_receber.status %>
           </td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", cta_receber_path(cta_receber) %> |
