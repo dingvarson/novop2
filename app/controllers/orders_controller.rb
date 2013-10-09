@@ -1,3 +1,4 @@
+ #encoding: utf-8
 class OrdersController < ApplicationController
  
  #filtro para não deixar o acessar a URL sem estar logado
@@ -126,7 +127,7 @@ class OrdersController < ApplicationController
         format.html { redirect_to @order, notice: 'O.S. criada com Exito.' }
         
         #inserindo o status Á RECEBER, na O.S.
-        Order.update(@order.id, :status => 'A RECEBER')
+        Order.update(@order.id, :status => 'Á RECEBER')
 
         format.json { render json: @order, status: :created, location: @order }
       

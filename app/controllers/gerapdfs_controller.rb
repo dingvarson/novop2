@@ -42,7 +42,7 @@ class GerapdfsController < ApplicationController
   
              contas_a_receber = CtaReceber.new(params[:cta_receber])
              contas_a_receber.nomecli = @order.nome_cli
-             contas_a_receber.status = "A RECEBER"
+             contas_a_receber.status = "Á RECEBER"
              contas_a_receber.descr_serv = "Referente a O.S: #{@order.id}"
              contas_a_receber.valor = @items
              contas_a_receber.save!
