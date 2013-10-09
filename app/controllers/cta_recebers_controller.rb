@@ -52,8 +52,8 @@ class CtaRecebersController < ApplicationController
    @dataatual = Time.now
    
    #SE O STATUS NÃO ESTIVER COMO 'NÃO PAGO' NÃO SERÁ POSSIVEL EFETUAR O PAGAMENTO
-    if @cta_recebers.status == "A RECEBER"
-    CtaReceber.update(@cta_recebers.id, :status => 'RECEBIDO', :data_recebimento => @dataatual)
+    if @cta_recebers.status == "Á RECEBER"
+    CtaReceber.update(@cta_recebers.id, :status => 'RECEBIDA', :data_recebimento => @dataatual)
   
   
    #recarregando a view com a data e o status atualizado
@@ -61,7 +61,7 @@ class CtaRecebersController < ApplicationController
     redirect_to cta_receber_path(@cta_recebers), :flash => { :alert => "BAIXA REALIZADA COM EXITO!" }
 
     else
-    redirect_to cta_receber_path(@cta_recebers), :flash => { :alert => "***Ocorreu um erro*** O Status já está como RECEBIDO para o Pagamento: #{@cta_recebers.descr_serv} !" }
+    redirect_to cta_receber_path(@cta_recebers), :flash => { :alert => "***Ocorreu um erro*** O Status já está como RECEBIDA para o Pagamento: #{@cta_recebers.descr_serv} !" }
     end
     end
   

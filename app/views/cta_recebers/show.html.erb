@@ -26,6 +26,12 @@
           <b><%= t("activerecord.attributes.cta_receber.valor", :default => t("activerecord.labels.valor", :default => "Valor")) %>:</b>
           <%= @cta_receber.valor %>
         </p>
+        
+        <p>
+          <b><%= t("activerecord.attributes.cta_receber.valor", :default => t("activerecord.labels.status", :default => "Status")) %>:</b>
+          <%= @cta_receber.status %>
+        </p>
+        
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_cta_receber_path(@cta_receber), :class => "button" %> 
         <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), cta_receber_path(@cta_receber), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>

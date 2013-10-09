@@ -46,7 +46,7 @@ class CtaPagarsController < ApplicationController
    
    #SE O STATUS NÃO ESTIVER COMO 'NÃO PAGO' NÃO SERÁ POSSIVEL EFETUAR O PAGAMENTO
     if @cta_pagars.status == "Á PAGAR"
-    CtaPagar.update(@cta_pagars.id, :status => 'PAGO', :data_pagto => @dataatual)
+    CtaPagar.update(@cta_pagars.id, :status => 'PAGA', :data_pagto => @dataatual)
   
   
    #recarregando a view com a data e o status atualizado

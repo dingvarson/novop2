@@ -41,8 +41,12 @@ Omini::Application.routes.draw do
   end
 
 
-  resources :cadprods
-
+  resources :cadprods do
+    collection do
+      get 'consulta'
+    end
+  end
+  
    # rotas para consultar contatos
  resources :orders do
   collection do

@@ -19,7 +19,13 @@
     <%= f.text_field :valor, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
-        
+  
+   <div class="group">
+    <%= f.label :status, t("activerecord.attributes.cta_receber.status", :default => "Status"), :class => :label %>
+    <%= f.select :status, options_for_select([["Á RECEBER", "Á RECEBER"], ["RECEBIDA", "RECEBIDA"]]) %>
+    <span class="description">Selecione uma opção</span>
+   </div>
+          
 <div class="group navform wat-cf">
   <button class="button" type="submit">
     <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>

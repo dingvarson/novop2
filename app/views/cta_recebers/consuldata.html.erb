@@ -20,8 +20,10 @@
   </label>
  </h2>   
     
+    
     <div class="inner">
       <table class="table">
+      	
         <tr>             
           <th class="first">ID</th>
                     <th>
@@ -34,12 +36,14 @@
                       <th><%= t("web-app-theme.valor", :default => "Status")  %></th>
                      
                      <th class="last">&nbsp;</th>
+                     
         </tr>
         
         <% if @cta_recebers.blank? then %>
       
          <h2>Não Foram Encontrados Registros </h2>
-          <% else %>
+         
+         <% else %>
         
         <% @cta_recebers.each do |cta_receber| -%>
         <tr class="<%= cycle("odd", "even") %>">
@@ -66,29 +70,26 @@
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_cta_receber_path(cta_receber) %> |
             <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", cta_receber_path(cta_receber), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
           </td>
-        </tr>          
+        </tr>    
+              
         <% end -%>
       </table>
+  
+      
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>
          
             
         Total Geral R$<%= @somatoria %>
-      
-        
+   
+       
       </div>
-     
-    </div>
+     </div>
   </div>
 </div>
-
- 
-
-<% content_for :sidebar, render(:partial => 'cadclis/sidebar') -%>
-
-
- <% end %> 
+ <% end -%>
+<% content_for :sidebar, render(:partial => 'sidebar') -%> 
 
 
 
