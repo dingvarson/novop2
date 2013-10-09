@@ -45,6 +45,7 @@ class GerapdfsController < ApplicationController
              contas_a_receber.status = "Á RECEBER"
              contas_a_receber.descr_serv = "Referente a O.S: #{@order.id}"
              contas_a_receber.valor = @items
+             contas_a_receber.order_id = @order.id
              contas_a_receber.save!
              
    #''''''''''''''''''''''''''''''''''''

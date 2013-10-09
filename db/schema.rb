@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130923193217) do
+ActiveRecord::Schema.define(:version => 20131009200807) do
 
   create_table "cadclis", :force => true do |t|
     t.string   "nomecli"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130923193217) do
     t.datetime "updated_at",       :null => false
     t.string   "status"
     t.date     "data_recebimento"
+    t.integer  "order_id"
   end
 
   create_table "gerapdfs", :force => true do |t|

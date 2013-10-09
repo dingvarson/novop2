@@ -19,7 +19,11 @@
 
         <p>
           <b><%= t("activerecord.attributes.cta_receber.descr_serv", :default => t("activerecord.labels.descr_serv", :default => "Descr serv")) %>:</b>
+          <% if @cta_receber.order_id  %>
+          <%= link_to @cta_receber.descr_serv, link_os_cta_receber_path(@cta_receber.order_id) %>
+          <% else %>
           <%= @cta_receber.descr_serv %>
+                   <% end %>
         </p>
 
         <p>

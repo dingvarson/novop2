@@ -5,7 +5,23 @@ class CtaRecebersController < ApplicationController
   before_filter :require_login
   
   
-  
+  #CRIANDO UM LINK PARA CHAMAR A O.S. REFERENTE Á CONTA Á RECEBER
+   def link_os
+     
+     if params[:id].blank? then
+    'sem link' 
+    else
+    
+    @order = Order.find(params[:id])
+    @items = Item.sum(:val_total, :conditions => {:order_id => [@order]})
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @order }
+    end
+    end
+  end
+ #------------------------------------------------------------------
 
   # GET /cta_recebers/1
   # GET /cta_recebers/1.json

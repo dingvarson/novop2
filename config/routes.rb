@@ -91,12 +91,14 @@ end
     member do
       get 'recebimento'
       get 'consuldata'
+      get 'link_os'
     end
   collection do
     get 'consulta'
     get 'consul_cli'
     get 'recebimento'
     get 'consuldata'
+    get 'link_os'
   end
 end
 

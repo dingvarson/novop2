@@ -1,4 +1,7 @@
 class CtaReceber < ActiveRecord::Base
+  #referencia inserida na Ordem de Serviço
+  belongs_to :order
+  
   attr_accessible :descr_serv, :nomecli, :valor, :status, :data_recebimento
   
   

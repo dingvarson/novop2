@@ -163,6 +163,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.destroy
     Item.destroy_all(:order_id => @order)
+    CtaReceber.destroy_all(:order_id => @order)
     
     respond_to do |format|
       format.html { redirect_to orders_url }
