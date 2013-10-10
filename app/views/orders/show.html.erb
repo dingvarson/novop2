@@ -4,11 +4,8 @@
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", orders_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_order_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Visualizar")}", order_path %></li>
-      <li ><%= link_to "#{t("web-app-theme.baixar", :default => "Efetuar Baixa")}", baixa_os_gerapdf_path(@order), :confirm => "#{t("web-app-theme.confirm", :default => "Você confirma o Recebimento da O.S: #{@order.nome_cli}?")}" %> </li>
-
-      <li> <%= link_to "Gerar Comprovante", rpt_order_gerapdf_path(@order) %> </li>
-      
-
+      <li><%= link_to "#{t("web-app-theme.baixar", :default => "Efetuar Baixa")}", baixa_os_gerapdf_path(@order), :confirm => "#{t("web-app-theme.confirm", :default => "Você confirma o Recebimento da O.S: #{@order.nome_cli}?")}" %> </li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Gerar Comprovante")}", rpt_order_gerapdf_path(@order, :format => 'pdf') %></li>
                  
     </ul>
   </div>          

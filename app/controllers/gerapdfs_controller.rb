@@ -11,9 +11,9 @@ class GerapdfsController < ApplicationController
    
    #Fazendo a somatoria de todos os itens na ordem de serviço
    @items = Item.sum(:val_total, :conditions => {:order_id => [@order]})
-   
-   render :layout => 'rpt_cliente/rpt_order'
   
+     
+  render :layout => 'rpt_cliente/rpt_order'
   end
   
   #''''''''''''DANDO BAIXA NA O.S. E ENVIANDO OS VALORES PARA O CTA RECEBER
