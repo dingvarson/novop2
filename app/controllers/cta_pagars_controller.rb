@@ -15,10 +15,14 @@ class CtaPagarsController < ApplicationController
     else
     
     
-  @cta_pagars = CtaPagar.find(:all, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
+  #@cta_pagars = CtaPagar.find(:all, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
+  
+  #CONSULTA POR DATA E STATUS DA CONTA
+  @cta_pagars = CtaPagar.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at)
+ 
   
   #somando tudo que tem no periodo informado pela consulta
-  @somatoria = CtaPagar.sum(:valor, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
+  @somatoria = CtaPagar.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at).sum :valor
   
     respond_to do |format|
     format.html #show.html.erb

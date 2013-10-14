@@ -38,18 +38,22 @@ class CtaRecebersController < ApplicationController
   
   # QUERY POR DATA
   def consuldata
-    
+   #encoding: utf-8  
     #tratamento de erro para o caso de nõo informar as datas
     if params['data1'].blank? or params['data2'].blank? then
     'Order was successfully updated.' 
     else
     
     
-  @cta_recebers = CtaReceber.find(:all, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
+ # @cta_recebers = CtaReceber.find(:all, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']]  , :order => "created_at")
+  
+  #CONSULTA POR DATA E STATUS DAS CONTAS
+  @cta_recebers = CtaReceber.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at)
+   
   
   #somando tudo que tem no periodo informado pela consulta
-  @somatoria = CtaReceber.sum(:valor, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
-  
+  @somatoria = CtaReceber.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at).sum :valor
+    
     respond_to do |format|
     format.html #show.html.erb
     format.json { render json: @cta_recebers }
