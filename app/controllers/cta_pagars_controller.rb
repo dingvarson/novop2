@@ -17,15 +17,15 @@ class CtaPagarsController < ApplicationController
     
   if params[:combo] == "TODAS" then 
   #CONSULTA TRAS TODAS AS CONTAS
-  @cta_pagars = CtaPagar.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).order(:created_at)
+  @cta_pagars = CtaPagar.where("datavencto BETWEEN ? AND ?", params[:data1], params[:data2]).order(:datavencto)
   #somando tudo que tem no periodo informado pela consulta
-  @somatoria = CtaPagar.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).order(:created_at).sum :valor
+  @somatoria = CtaPagar.where("datavencto BETWEEN ? AND ?", params[:data1], params[:data2]).order(:datavencto).sum :valor
   #SENÃO TRAS DE ACORDO COM O STATUS SELECIONADO
   else
   #CONSULTA POR DATA E STATUS DA CONTA
-  @cta_pagars = CtaPagar.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at)
+  @cta_pagars = CtaPagar.where("datavencto BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:datavencto)
   #somando tudo que tem no periodo informado pela consulta
-  @somatoria = CtaPagar.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at).sum :valor
+  @somatoria = CtaPagar.where("datavencto BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:datavencto).sum :valor
   
   end  
     respond_to do |format|
