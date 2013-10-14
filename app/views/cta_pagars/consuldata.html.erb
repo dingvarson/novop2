@@ -34,7 +34,7 @@
                     <th>
             <%= t("activerecord.attributes.ordem.nome_cli", :default => t("activerecord.labels.Nome", :default => "Nome Cliente")) %>
           </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Data Cadastro")  %></th>
+                    <th><%= t("web-app-theme.datavencto", :default => "Data Vencto")  %></th>
                     
                      <th><%= t("web-app-theme.valor", :default => "Valor")  %></th>
                      
@@ -57,7 +57,7 @@
             <%= link_to cta_pagar.nomeforn, cta_pagar_path(cta_pagar) %>
           </td>
                     <td>
-            <%= cta_pagar.created_at.strftime("%d/%m/%Y") %>
+            <%= cta_pagar.datavencto.strftime("%d/%m/%Y") %>
           </td>
           
           <td>
