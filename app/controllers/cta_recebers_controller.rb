@@ -41,19 +41,27 @@ class CtaRecebersController < ApplicationController
    #encoding: utf-8  
     #tratamento de erro para o caso de nõo informar as datas
     if params['data1'].blank? or params['data2'].blank? then
-    'Order was successfully updated.' 
+    flash.now[:notice] = 'INFORME O PERIODO DAS DATAS!'
     else
     
     
  # @cta_recebers = CtaReceber.find(:all, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']]  , :order => "created_at")
   
+  #SE FOR TODAS AS CONTAS 
+  if params[:combo] == "TODAS" then
+  #CONSULTA POR DATA E STATUS DAS CONTAS
+  @cta_recebers = CtaReceber.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).order(:created_at)
+  #somando tudo que tem no periodo informado pela consulta
+  @somatoria = CtaReceber.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).order(:created_at).sum :valor
+  
+  #OU CASO CONTRÁRIO TRAZ Á RECEBER OU RECEBIDAS
+  else
   #CONSULTA POR DATA E STATUS DAS CONTAS
   @cta_recebers = CtaReceber.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at)
-   
-  
   #somando tudo que tem no periodo informado pela consulta
   @somatoria = CtaReceber.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at).sum :valor
-    
+  end  
+      
     respond_to do |format|
     format.html #show.html.erb
     format.json { render json: @cta_recebers }

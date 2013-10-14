@@ -11,19 +11,23 @@ class CtaPagarsController < ApplicationController
     
     #tratamento de erro para o caso de nõo informar as datas
     if params['data1'].blank? or params['data2'].blank? then
-    'Order was successfully updated.' 
+    flash.now[:notice] = 'INFORME O PERIODO DAS DATAS!' 
     else
     
     
-  #@cta_pagars = CtaPagar.find(:all, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
-  
+  if params[:combo] == "TODAS" then 
+  #CONSULTA TRAS TODAS AS CONTAS
+  @cta_pagars = CtaPagar.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).order(:created_at)
+  #somando tudo que tem no periodo informado pela consulta
+  @somatoria = CtaPagar.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).order(:created_at).sum :valor
+  #SENÃO TRAS DE ACORDO COM O STATUS SELECIONADO
+  else
   #CONSULTA POR DATA E STATUS DA CONTA
   @cta_pagars = CtaPagar.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at)
- 
-  
   #somando tudo que tem no periodo informado pela consulta
   @somatoria = CtaPagar.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at).sum :valor
   
+  end  
     respond_to do |format|
     format.html #show.html.erb
     format.json { render json: @cta_recebers }
