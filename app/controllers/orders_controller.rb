@@ -5,7 +5,31 @@ class OrdersController < ApplicationController
   before_filter :require_login
   
   
+ 
+ 
+   #'''''''''LOCALIZANDO OS DADOS DO CLIENTE E PREENCHENDO OS DADOS CADASTRAIS ABAIXO
+  #COM BASE NO NOME DO CLIENTE LOCALIZADO NO COMBOBOX
   
+  #def localiza_dados_cli
+      
+      #tratamento de erro para o caso de nõo informar as datas
+    #if params[:nome_cli].blank? or params[:nome_cli] == "Selecione o Cliente" then
+    #flash.now[:notice] = 'SELECIONE O CLIENTE DESEJADO!' 
+    #else
+      
+      #@Cadcli = Cadcli.where("nomecli like ?", "%#{params[:nomecli]}%")
+      
+      #@cadcli = Cadcli.select('end_c').where("nomecli like ?", "%#{params[:nome_cli]}%")
+       
+        
+  #redirect_to new_order_path, :flash => { :alert => "***O ENDEREÇO: #{@Cadcli.end_c} !" }
+
+    
+ # end
+ # end  
+ 
+ 
+ 
   
    #''''''''''''DANDO BAIXA NA O.S. E ENVIANDO OS VALORES PARA O CTA RECEBER
   def baixa_os
@@ -119,11 +143,10 @@ class OrdersController < ApplicationController
   def create
     
     @order = Order.new(params[:order])
-
+    
     respond_to do |format|
       if @order.save
       
-        
         format.html { redirect_to @order, notice: 'O.S. criada com Exito.' }
         
         #inserindo o status Á RECEBER, na O.S.

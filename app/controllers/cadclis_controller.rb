@@ -2,7 +2,9 @@ class CadclisController < ApplicationController
     before_filter :require_login
   # GET /cadclis
   # GET /cadclis.json
-   def index
+  
+  
+    def index
     
    @cadclis = Cadcli.order("nomecli").all
   # @cadclis = Cadcli.paginate :per_page => 5, :page => params[:page] 
