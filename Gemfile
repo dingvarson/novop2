@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#nova gem para fazer o push no heroku
+gem 'rails_12factor'
+
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
