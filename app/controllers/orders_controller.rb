@@ -10,23 +10,15 @@ class OrdersController < ApplicationController
    #'''''''''LOCALIZANDO OS DADOS DO CLIENTE E PREENCHENDO OS DADOS CADASTRAIS ABAIXO
   #COM BASE NO NOME DO CLIENTE LOCALIZADO NO COMBOBOX
   
-  #def localiza_dados_cli
-      
-      #tratamento de erro para o caso de nõo informar as datas
-    #if params[:nome_cli].blank? or params[:nome_cli] == "Selecione o Cliente" then
-    #flash.now[:notice] = 'SELECIONE O CLIENTE DESEJADO!' 
-    #else
-      
-      #@Cadcli = Cadcli.where("nomecli like ?", "%#{params[:nomecli]}%")
-      
-      #@cadcli = Cadcli.select('end_c').where("nomecli like ?", "%#{params[:nome_cli]}%")
-       
+  def localiza_dados_cli
         
-  #redirect_to new_order_path, :flash => { :alert => "***O ENDEREÇO: #{@Cadcli.end_c} !" }
-
-    
- # end
- # end  
+     #@cadcli = Cadcli.select('tsete mesmo').where("nomecli like ?", "%#{params[:nome_cli]}%")
+      
+      @resultado = Order.find(:all,:select => 'nome_cli', :conditions => ["id = ?",@order])
+      @cadcli = Cadcli.find(:all,:select => 'end_c', :conditions => ["nomecli = ?",@resultado])
+      
+  end
+  
  
  
  
@@ -67,6 +59,7 @@ class OrdersController < ApplicationController
   #somando tudo que tem no periodo informado pela consulta
   @items = Item.sum(:val_total, :conditions =>["date(created_at) BETWEEN ? AND ? ", params['data1'],params['data2']], :order => "created_at")
   
+ 
     respond_to do |format|
     format.html #show.html.erb
     format.json { render json: @order }
@@ -81,9 +74,10 @@ class OrdersController < ApplicationController
   def consulta
     
        @orders = Order.where("nome_cli like ?", "%#{params['lala'].upcase}%")
+       
       # @orders = Order.paginate :per_page => 5, :page => params[:page], :order => 'nome_cli'
                                 
-      respond_to do |format|
+        respond_to do |format|
         format.html #show.html.erb
         format.json { render json: @order }
   end
@@ -95,6 +89,7 @@ class OrdersController < ApplicationController
   def consul_cli
      
   end 
+  
   #--------------------------------------------------------------  
   
   
@@ -140,21 +135,28 @@ class OrdersController < ApplicationController
 
   # POST /orders
   # POST /orders.json
+  
+  
+  
+  
   def create
     
-    @order = Order.new(params[:order])
-    
-    respond_to do |format|
+  @order = Order.new(params[:order])
+     respond_to do |format|
       if @order.save
       
+          
+      #aqui é localizado os dados do cliente selecionado no Combo
+      #@cadclis = Cadcli.where("nomecli like ?", "%#{params[:nome_cli]}%")
+     
+      
         format.html { redirect_to @order, notice: 'O.S. criada com Exito.' }
-        
-        #inserindo o status Á RECEBER, na O.S.
-        Order.update(@order.id, :status => 'Á RECEBER')
+              
+       
+        Order.update(@order.id, :status => 'Á RECEBER', :end_cli => @cadcli, :fone_cli => @cadcli)
 
         format.json { render json: @order, status: :created, location: @order }
-      
-   
+  
       else
         format.html { render action: "new" }
         format.json { render json: @order.errors, status: :unprocessable_entity }

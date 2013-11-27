@@ -54,6 +54,7 @@ Omini::Application.routes.draw do
     get 'consul_cli'
    get 'consuldata'
    get 'testecombo'
+   get 'localiza_dados_cli'
    
   end
 end
@@ -72,6 +73,7 @@ end
   collection do
     get 'consulta'
     get 'consul_cli'
+    get 'localiza_dados_cli'
    
   end
 end

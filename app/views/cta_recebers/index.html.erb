@@ -73,8 +73,12 @@
         <div class="actions">
         </div>
         <%= will_paginate @cta_recebers %>
-        Total Geral R$<%= @cta_recebers = CtaReceber.sum(:valor)%>
-      </div>
+        Total Geral R$<%= @cta_recebers = CtaReceber.sum(:valor)%><br />
+        Total Geral á Receber R$ <%= @cta_receber = CtaReceber.sum(:valor, :conditions => ['status = ?', "Á RECEBER"]) %><br />
+        Total Geral Recebidas R$ <%= @cta_receber = CtaReceber.sum(:valor, :conditions => ['status = ?', "RECEBIDA"]) %><br />
+        resultado <%= @cadclis =  Cadcli.find(:all,:select => 'end_c', :conditions => ["nomecli = ?",'JOSE DA SILVA']) %>
+        
+              </div>
     </div>
   </div>
 </div>
