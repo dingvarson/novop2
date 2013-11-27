@@ -19,9 +19,7 @@ class OrdersController < ApplicationController
       
   end
   
- 
- 
- 
+  
   
    #''''''''''''DANDO BAIXA NA O.S. E ENVIANDO OS VALORES PARA O CTA RECEBER
   def baixa_os
