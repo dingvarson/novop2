@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
  
  #filtro para não deixar o acessar a URL sem estar logado
   before_filter :require_login
-  
+  respond_to :html, :json
   
  
  
@@ -11,12 +11,10 @@ class OrdersController < ApplicationController
   #COM BASE NO NOME DO CLIENTE LOCALIZADO NO COMBOBOX
   
   def localiza_dados_cli
-        
-     #@cadcli = Cadcli.select('tsete mesmo').where("nomecli like ?", "%#{params[:nome_cli]}%")
-      
-      @resultado = Order.find(:all,:select => 'nome_cli', :conditions => ["id = ?",@order])
-      @cadcli = Cadcli.find(:all,:select => 'end_c', :conditions => ["nomecli = ?",@resultado])
-      
+    # @cadcli = Cadcli.select('tsete mesmo').where("nomecli like ?", "%#{params[:nome_cli]}%")
+    # @resultado = Order.find(:all,:select => 'nome_cli', :conditions => ["id = ?",@order])
+    @cadcli = Cadcli.select('nomecli,end_c,fone_c').where(id: params[:id]).first
+    respond_with(@cadcli)
   end
   
   
@@ -144,14 +142,14 @@ class OrdersController < ApplicationController
       if @order.save
       
           
-      #aqui é localizado os dados do cliente selecionado no Combo
-      #@cadclis = Cadcli.where("nomecli like ?", "%#{params[:nome_cli]}%")
-     
+          
+      #Order.update(@order.id, :status => 'Á RECEBER', :nomecli => @cadclis, :fone_cli => @cadcli)
+   
       
         format.html { redirect_to @order, notice: 'O.S. criada com Exito.' }
               
        
-        Order.update(@order.id, :status => 'Á RECEBER', :end_cli => @cadcli, :fone_cli => @cadcli)
+       # Order.update(@order.id, :status => 'Á RECEBER', :end_cli => @cadcli, :fone_cli => @cadcli)
 
         format.json { render json: @order, status: :created, location: @order }
   

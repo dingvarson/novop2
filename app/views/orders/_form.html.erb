@@ -1,12 +1,27 @@
   </label> 
   <div class="group">
-  <form accept-charset="UTF-8" action="/orders/localiza_dados_cli" method="get">
+  <!--form accept-charset="UTF-8" action="/orders/localiza_dados_cli" method="get"-->
   <%= f.label :nome_cli, t("activerecord.attributes.order.nome_cli", :default => "Selecione o Cliente"), :class => :label %>
-  <%= f.collection_select(:nome_cli, Cadcli.order('nomecli ASC').all, :nomecli, :nomecli, :prompt => "Selecione o Cliente")%>
-   <label>
-    <input type="submit" name="" id="" value="Consultar" />
-  </form> 
-  </label>
+  <%= f.collection_select(:nome_cli, Cadcli.order('nomecli ASC').all, :id, :nomecli, :prompt => "Selecione o Cliente")%>
+    <label>
+      <button type="button" id="btnConsultar" data-action="/orders/localiza_dados_cli">Consultar</button>
+    </label>
+<script>
+  $('#btnConsultar').on('click', function(){
+    $.ajax({
+        url: $('#btnConsultar').data('action')+'?id='+$('#order_nome_cli').val(),
+        dataType: 'json',
+        success: function(obj){
+        	$('#order_end_cli').val(obj.end_c);
+            $('#fone').val(obj.fone_c);
+        },
+        error: function(){
+            console.log(arguments);
+        }
+    })
+});
+</script>
+  <!--/form-->
        
   </div>
   </label>
