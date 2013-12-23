@@ -12,6 +12,7 @@
         url: $('#btnConsultar').data('action')+'?id='+$('#order_nome_cli').val(),
         dataType: 'json',
         success: function(obj){
+        	$('#nomecliente').val(obj.nomecli);
         	$('#order_end_cli').val(obj.end_c);
             $('#fone').val(obj.fone_c);
         },
@@ -26,6 +27,11 @@
   </div>
   </label>
   <label>
+  	
+   <div class="field">
+    <%= f.label :nome_cli, t("activerecord.attributes.order.fone_cli", :default => "Nome"), :class => :label %>
+    <%= f.text_field :nome_cli, :id => 'nomecliente' %>
+  </div>	
  
   <div class="field">
     <%= f.label :end_cli, t("activerecord.attributes.order.end_cli", :default => "Endereço"), :class => :label %>
