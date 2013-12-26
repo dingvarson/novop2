@@ -1,6 +1,19 @@
-<h1>Editing cad_patrimonio</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", cad_patrimonios_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_cad_patrimonio_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_cad_patrimonio_path %></li>
+    </ul>
+  </div>          
+  <div class="content">            
+    <h2 class="title"><%= t("web-app-theme.edit", :default => "Editar") %>Patrimonio</h2>
+    <div class="inner">
+      <%= form_for @cad_patrimonio, :url => cad_patrimonio_path(@cad_patrimonio), :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @cad_patrimonio %> |
-<%= link_to 'Back', cad_patrimonios_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

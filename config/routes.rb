@@ -1,7 +1,11 @@
 Omini::Application.routes.draw do
   
 
-  resources :cad_patrimonios
+  resources :cad_patrimonios do
+    collection do
+      
+    end
+  end
 
 
   resources :rpt_clis do

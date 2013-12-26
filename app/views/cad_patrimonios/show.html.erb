@@ -1,20 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", cad_patrimonios_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_cad_patrimonio_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Visualizar")}", cad_patrimonio_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.cadprod.nomeprod", :default => t("activerecord.labels.nomeprod", :default => "Descrição")) %>:</b>
+          <%= @cad_patrimonio.descricao %>
+        </p>
 
-<p>
-  <b>Descricao:</b>
-  <%= @cad_patrimonio.descricao %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.cadprod.quantprod", :default => t("activerecord.labels.quantprod", :default => "Cliente")) %>:</b>
+          <%= @cad_patrimonio.cliente %>
+        </p>
 
-<p>
-  <b>Cliente:</b>
-  <%= @cad_patrimonio.cliente %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.cadprod.valunit", :default => t("activerecord.labels.valunit", :default => "Tipo contrato")) %>:</b>
+          <%= @cad_patrimonio.tipo_contrato %>
+        </p>
 
-<p>
-  <b>Tipo contrato:</b>
-  <%= @cad_patrimonio.tipo_contrato %>
-</p>
+        
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_cad_patrimonio_path(@cad_patrimonio), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), cad_patrimonio_path(@cad_patrimonio), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Voce tem certeza?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
 
 
-<%= link_to 'Edit', edit_cad_patrimonio_path(@cad_patrimonio) %> |
-<%= link_to 'Back', cad_patrimonios_path %>
+
+
+
+
