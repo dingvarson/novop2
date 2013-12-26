@@ -1,6 +1,9 @@
 Omini::Application.routes.draw do
   
 
+  resources :cad_patrimonios
+
+
   resources :rpt_clis do
     collection do
       get 'rpt_clientes'

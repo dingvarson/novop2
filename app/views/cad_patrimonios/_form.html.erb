@@ -1,0 +1,29 @@
+<%= form_for(@cad_patrimonio) do |f| %>
+  <% if @cad_patrimonio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cad_patrimonio.errors.count, "error") %> prohibited this cad_patrimonio from being saved:</h2>
+
+      <ul>
+      <% @cad_patrimonio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </div>
+  <div class="field">
+    <%= f.label :cliente %><br />
+    <%= f.text_field :cliente %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_contrato %><br />
+    <%= f.text_field :tipo_contrato %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

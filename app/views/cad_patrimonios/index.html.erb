@@ -1,0 +1,27 @@
+<h1>Listing cad_patrimonios</h1>
+
+<table>
+  <tr>
+    <th>Descricao</th>
+    <th>Cliente</th>
+    <th>Tipo contrato</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cad_patrimonios.each do |cad_patrimonio| %>
+  <tr>
+    <td><%= cad_patrimonio.descricao %></td>
+    <td><%= cad_patrimonio.cliente %></td>
+    <td><%= cad_patrimonio.tipo_contrato %></td>
+    <td><%= link_to 'Show', cad_patrimonio %></td>
+    <td><%= link_to 'Edit', edit_cad_patrimonio_path(cad_patrimonio) %></td>
+    <td><%= link_to 'Destroy', cad_patrimonio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cad patrimonio', new_cad_patrimonio_path %>

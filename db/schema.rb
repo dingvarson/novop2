@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009200807) do
+ActiveRecord::Schema.define(:version => 20131226120606) do
+
+  create_table "cad_patrimonios", :force => true do |t|
+    t.string   "descricao"
+    t.string   "cliente"
+    t.string   "tipo_contrato"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "cadclis", :force => true do |t|
     t.string   "nomecli"

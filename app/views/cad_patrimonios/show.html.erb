@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @cad_patrimonio.descricao %>
+</p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @cad_patrimonio.cliente %>
+</p>
+
+<p>
+  <b>Tipo contrato:</b>
+  <%= @cad_patrimonio.tipo_contrato %>
+</p>
+
+
+<%= link_to 'Edit', edit_cad_patrimonio_path(@cad_patrimonio) %> |
+<%= link_to 'Back', cad_patrimonios_path %>

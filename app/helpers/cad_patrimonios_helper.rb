@@ -1,0 +1,2 @@
+module CadPatrimoniosHelper
+end
