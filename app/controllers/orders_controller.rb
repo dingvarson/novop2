@@ -23,17 +23,16 @@ class OrdersController < ApplicationController
   def baixa_os
     
    @order = Order.find(params[:id])
-   
-   #SE O STATUS NÃO ESTIVER COMO 'NÃO PAGO' NÃO SERÁ POSSIVEL EFETUAR O PAGAMENTO
-   #if @cadcli.status == "NÃO PAGO" or @cadcli.status == "SEM CONTRATO"
+        
    @novostatus = 'RECEBIDA'
    Order.update(@order.id, :status => @novostatus)
+      
    #recarregando a view com o status atualizado
    @order = Order.find(params[:id])
     redirect_to order_path(@order), :flash => { :alert => "O.S BAIXADA COM EXITO!" }
- 
-    end
-  
+    
+   end  
+     
   #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   
   

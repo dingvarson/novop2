@@ -53,13 +53,20 @@ class CtaRecebersController < ApplicationController
   @cta_recebers = CtaReceber.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).order(:created_at)
   #somando tudo que tem no periodo informado pela consulta
   @somatoria = CtaReceber.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).order(:created_at).sum :valor
-  
-  #OU CASO CONTRÁRIO TRAZ Á RECEBER OU RECEBIDAS
-  else
+  end
+  #Á RECEBER
+  if params[:combo] == "Á RECEBER" then
   #CONSULTA POR DATA E STATUS DAS CONTAS
   @cta_recebers = CtaReceber.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at)
   #somando tudo que tem no periodo informado pela consulta
   @somatoria = CtaReceber.where("created_at BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at).sum :valor
+  end  
+  
+  if params[:combo] == "RECEBIDA" then
+  #CONSULTA POR DATA E STATUS DAS CONTAS
+  @cta_recebers = CtaReceber.where("data_recebimento BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at)
+  #somando tudo que tem no periodo informado pela consulta
+  @somatoria = CtaReceber.where("data_recebimento BETWEEN ? AND ?", params[:data1], params[:data2]).where(status: params[:combo]).order(:created_at).sum :valor
   end  
       
     respond_to do |format|
