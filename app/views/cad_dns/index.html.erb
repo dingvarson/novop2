@@ -1,0 +1,62 @@
+
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", cad_dns_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_cad_dn_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "")  %>
+    	
+    	</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          
+                    <th>
+            <%= t("activerecord.attributes.cad_dns.email", :default => t("activerecord.labels.email", :default => "Email:")) %>
+          </th>
+                    <th><%= t("web-app-theme.senha", :default => "Senha")  %></th>
+                    
+                    <th><%= t("web-app-theme.cliente", :default => "Cliente")  %></th>
+                    
+                    <th><%= t("web-app-theme.dns", :default => "DNS")  %></th>
+                    
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @cad_dns.each do |cad_dn| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+          	 <%= link_to cad_dn.email, cad_dn_path(cad_dn) %>
+          </td>
+          
+          <td>
+            <%= cad_dn.senha %>
+          </td>          
+           <td>
+            <%= cad_dn.cliente %>
+          </td>
+           <td>
+            <%= cad_dn.dns %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Visualizar")}", cad_dn_path(cad_dn) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_cad_dn_path(cad_dn) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", cad_dn_path(cad_dn), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Você tem certeza?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+
+

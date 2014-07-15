@@ -1,6 +1,13 @@
 Omini::Application.routes.draw do
   
 
+  resources :cad_dns do
+    collection do
+      
+    end
+  end
+
+
   resources :cad_patrimonios do
     collection do
       

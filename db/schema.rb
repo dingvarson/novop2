@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131226120606) do
+ActiveRecord::Schema.define(:version => 20140714234918) do
+
+  create_table "cad_dns", :force => true do |t|
+    t.string   "email"
+    t.string   "senha"
+    t.string   "cliente"
+    t.string   "dns"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "cad_patrimonios", :force => true do |t|
     t.string   "descricao"
