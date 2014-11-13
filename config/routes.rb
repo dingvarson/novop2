@@ -1,5 +1,12 @@
 Omini::Application.routes.draw do
   
+  #Gerar o cadastro de DNS com os dns's no mesmo cadastro por email
+   resources :dados_servers do
+    resources :descr_servers  
+   end
+   
+   resources :descr_servers 
+
 
   resources :cad_dns do
     collection do

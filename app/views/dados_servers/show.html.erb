@@ -1,0 +1,82 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", dados_servers_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_dados_server_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Visualizar")}", dados_server_path %></li>
+                      
+    </ul>
+  </div>          
+  <div class="content">
+  	<h2 class="title"><%= t("web-app-theme.new", :default => "Dados do Servidor DNS")%> <font color="red">Nº <%= @dados_server.id%></font></h2>
+    <div class="inner">
+    	
+   	
+<p>
+  <b><%= t("activerecord.attributes.dados_server.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
+
+  <%= @dados_server.email %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.dados_server.senha", :default => t("activerecord.labels.senha", :default => "Senha")) %>:</b>
+
+  <%= @dados_server.senha %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.dados_server.created_at", :default => t("activerecord.labels.created_at", :default => "Criado em")) %>:</b>
+
+  <%= @dados_server.created_at.strftime("%d/%m/%Y") %>
+ 
+</p>
+
+ </h2>   
+    
+    
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.cliente", :default => t("activerecord.labels.cliente", :default => "Cliente")) %>
+          </th>
+                    <th><%= t("web-app-theme.dns", :default => "DNS")  %></th>
+                    
+                    
+          <th class="last">&nbsp;</th>
+        </tr>
+        
+        <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_dados_server_path(@dados_server), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Voltar")}") + " " + t("web-app-theme.edit", :default=> "Voltar"),dados_servers_path, :class => "button" %> 
+</div>  
+               
+        <h2>Servidores DNS:</h2>
+      
+<% @dados_server.descr_servers.each do |descr_server| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= descr_server.id %>
+          </td>
+                    <td>
+            <%= descr_server.cliente %>
+          </td>
+                    <td>
+            <%= descr_server.dns %>
+            
+          <td class="last">
+           <%= link_to "#{t("web-app-theme.show", :default => "Editar")}", edit_descr_server_path(descr_server) %>
+           <%= link_to "#{t("web-app-theme.edit", :default => "Excluir")}", descr_server, method: :delete, :dados_server_id => descr_server, data: { confirm: 'Voce tem Certeza?' } %>	
+                   </td>
+          </tr>          
+        <% end -%>
+      </table>
+
+
+
+    
+    </div>
+ 
+</div>
+</div>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

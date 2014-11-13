@@ -50,6 +50,11 @@
           <b><%= t("activerecord.attributes.cadcli.datavencto", :default => t("activerecord.labels.datavencto", :default => "Datavencto")) %>:</b>
           <%= @cadcli.datavencto.strftime("%d/%m/%Y") %>
         </p>
+        
+        <p>
+          <b><%= t("activerecord.attributes.cadcli.obs", :default => t("activerecord.labels.obs", :default => "Observação")) %>:</b>
+          <%= @cadcli.obs %>
+        </p>
       <div class="wat-cf">
       	
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_cadcli_path(@cadcli), :class => "button" %> 

@@ -1,0 +1,68 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", dados_servers_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_dados_server_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "")  %>
+  
+    </h2>   
+    
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.dados_server.email", :default => t("activerecord.labels.email", :default => "Email")) %>
+          </th>
+                   <th>
+            <%= t("activerecord.attributes.dados_server.senha", :default => t("activerecord.labels.senha", :default => "Senha")) %>
+          </th>
+                   <th>
+            <%= t("activerecord.attributes.dados_server.criado", :default => t("activerecord.labels.criado", :default => "Criado em")) %>
+          </th>
+                   
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @dados_servers.each do |dados_server| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= dados_server.id %>
+          </td>
+                    <td>
+            <%= link_to dados_server.email, dados_server_path(dados_server) %>
+          </td>
+                    <td>
+            <%= dados_server.senha %>
+             </td>
+           
+              <td>
+            <%= dados_server.created_at.strftime("%d/%m/%Y") %>
+          </td>
+          
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", dados_server_path(dados_server) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_dados_server_path(dados_server) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", dados_server_path(dados_server), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Você tem certeza?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+       
+        
+        
+        
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+<% content_for :sidebar, render(:partial => 'cadclis/sidebar') -%>

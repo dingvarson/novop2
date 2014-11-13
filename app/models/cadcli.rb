@@ -1,5 +1,5 @@
 class Cadcli < ActiveRecord::Base
-  attr_accessible :id, :nomecli, :end_c, :fone_c, :status, :descr_serv, :valor, :datavencto, :emailcli
+  attr_accessible :id, :nomecli, :end_c, :fone_c, :status, :descr_serv, :valor, :datavencto, :emailcli, :obs
   
  validates_presence_of :nomecli, :end_c, :fone_c, :status, :descr_serv, :emailcli, :message => "Preenchimento Obrigatorio"
  

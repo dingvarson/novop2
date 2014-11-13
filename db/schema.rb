@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140714234918) do
+ActiveRecord::Schema.define(:version => 20141113200203) do
 
   create_table "cad_dns", :force => true do |t|
     t.string   "email"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20140714234918) do
     t.string   "end_c"
     t.string   "fone_c"
     t.text     "descr_serv"
+    t.text     "obs"
   end
 
   create_table "cadprods", :force => true do |t|
@@ -92,6 +93,23 @@ ActiveRecord::Schema.define(:version => 20140714234918) do
     t.date     "data_recebimento"
     t.integer  "order_id"
   end
+
+  create_table "dados_servers", :force => true do |t|
+    t.string   "email"
+    t.string   "senha"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "descr_servers", :force => true do |t|
+    t.text     "cliente"
+    t.text     "dns"
+    t.integer  "dados_server_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "descr_servers", ["dados_server_id"], :name => "index_descr_servers_on_dados_server_id"
 
   create_table "gerapdfs", :force => true do |t|
     t.datetime "created_at", :null => false
