@@ -24,6 +24,8 @@ class RptClisController < ApplicationController
    @avulso = Cadcli.count(:conditions => "status = 'SEM CONTRATO'")
    #quantidade de clientes sem contrato
    @fixo_mensal = Cadcli.count(:conditions => "status <> 'SEM CONTRATO'")
+   @valfixo_mensal = Cadcli.sum(:valor,:conditions => "status <> 'SEM CONTRATO'")
+   
    render :layout => 'rpt_cliente/rpt_clientes' 
    
     
