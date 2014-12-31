@@ -7,7 +7,7 @@
       <li ><%= link_to "#{t("web-app-theme.show", :default => "Efetuar Baixa")}", gerapdf_path(@cadcli), :confirm => "#{t("web-app-theme.confirm", :default => "Você confirma o Recebimento do cliente: #{@cadcli.nomecli}?")}" %> </li>
       <li> <%= link_to "Gerar Comprovante", chama_rpt_gerapdf_path(@cadcli, :format => 'pdf') %> </li>
      
-          
+         
           </ul>
   </div>          
   <div class="content">
