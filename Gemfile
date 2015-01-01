@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '1.9.3'
 
 #nova gem para fazer o push no heroku
 gem 'rails_12factor'
