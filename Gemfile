@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
-
+#minha versão original do projeto
 ruby '1.9.3'
+
+#adicionei essa versão do ruby pra ver
+#ruby '2.2.1'
 
 #nova gem para fazer o push no heroku
 gem 'rails_12factor'
