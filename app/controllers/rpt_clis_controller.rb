@@ -7,8 +7,7 @@ class RptClisController < ApplicationController
   #layout 'rpt_cliente/rpt_fichacli', :except => :index
   def show
    @cadcli = Cadcli.find(params[:id])
-   
-   
+
    render :layout => 'rpt_cliente/rpt_fichacli'   
      
   end
@@ -17,9 +16,12 @@ class RptClisController < ApplicationController
   #layout 'rpt_cliente/rpt_clientes', :except => :show
   
   def index
+
    #@cadclis = Cadcli.order("status, datavencto").all
    @cadclis = Cadcli.where(["status != ?", "SEM CONTRATO"]).order(:status,:datavencto)
 
+
+   @cadclis = Cadcli.order("status, datavencto").all
 
   
    #somatoria em reais de clientes fixos mensal
