@@ -19,11 +19,7 @@ class RptClisController < ApplicationController
 
    #@cadclis = Cadcli.order("status, datavencto").all
    @cadclis = Cadcli.where(["status != ?", "SEM CONTRATO"]).order(:status,:datavencto)
-
-
-   @cadclis = Cadcli.order("status, datavencto").all
-
-  
+     
    #somatoria em reais de clientes fixos mensal
    @cadcliss = Cadcli.sum(:valor)
    #quantidade de clientes fixos mensal
