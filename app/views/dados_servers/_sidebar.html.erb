@@ -1,0 +1,38 @@
+<div class="block notice">
+
+
+	 <% if @dados_server.email.nil? %>
+                        
+    <h2>Adicionar DNS:</h2>
+<div class="content">
+    <p>Preencha os dados do Cabeçalho.</p>
+  </div>
+      
+      
+        <% else %>
+        
+     
+     
+       <h2>Adicionar DNS:</h2><br />
+       
+  <p></p>    
+
+<%= form_for([@dados_server, @dados_server.descr_servers.build]) do |f| %>
+
+ <div class="field">
+    <%= f.label "Cliente:" %><br />
+    <%= f.text_field :cliente %>
+  </div>
+  <div class="field">
+    <%= f.label "DNS:" %><br />
+    <%= f.text_field :dns %>
+  </div>
+    
+   <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+      
+        <% end %>
+ 
+</div>

@@ -1,0 +1,44 @@
+<p align="center">
+<%= image_tag "web-app-theme/cabecalho_pdf.jpg" %>
+
+<h1><font color="silver"><p align="center">COMPROVANTE DE PAGAMENTO</p></font></h1>
+<br>
+<h2>
+Declaramos ter recebido a importância de R$<%= @cadcli.valor %> em depósito bancário de: <%= @cadcli.nomecli %>.
+
+Referente á taxa de licença de uso do mensal do Software e suporte.
+</h2>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+São Paulo, <%= DateTime.now.strftime("%d/%m/%Y") %> 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font size="5">Ademir de Góes Gomes</font> 	
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<b>Observação:</b>
+A sua licença de uso do Software foi renovada até: <b><%= @cadcli.datavencto.strftime("%d/%m/%Y") %></b>
+       

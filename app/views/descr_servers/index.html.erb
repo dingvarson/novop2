@@ -1,0 +1,27 @@
+<h1>Listagem de DNS</h1>
+
+<table>
+  <tr>
+    <th>Cliente</th>
+    <th>Email</th>
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @descr_servers.each do |descr_server| %>
+  <tr>
+    <td><%= descr_server.cliente %></td>
+    <td><%= descr_server.email %></td>
+   
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_descr_server_path(descr_server) %></td>
+    <td><%= link_to 'Destroy', descr_server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_descr_server_path %>

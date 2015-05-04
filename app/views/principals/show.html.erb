@@ -1,0 +1,81 @@
+<div class="block" id="block-text">  
+  <div class="content">
+<% if signed_in?(:user) %>
+
+      
+        
+    <h2 class="title">Listagem de Clientes Pendentes</h2>
+    <div class="inner">
+      <p class="first">
+        Segue abaixo a listagem de clientes que ainda <span class="hightlight">Não efetuou o pagamento mensal</span>, de acordo com a data de vencimento.
+      </p>
+           <p> <span class="gray">Clique sobre o nome do cliente para visualizar todos os dados</span></p>
+      <hr />
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.cadcli.nomecli", :default => t("activerecord.labels.nomecli", :default => "Nome Cliente")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Vencimento")  %></th>
+                    
+                     <th><%= t("web-app-theme.valor", :default => "Valor")  %></th>
+                     
+                     <th><%= t("web-app-theme.valor", :default => "Status")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+       
+        
+        <% @cadclis.each do |cadcli| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= cadcli.id %>
+          </td>
+                    <td>
+            <%= link_to cadcli.nomecli, cadcli_path(cadcli) %>
+          </td>
+                    <td>
+            <%= cadcli.datavencto.strftime("%d/%m/%Y") %>
+             <td>
+            <%= cadcli.valor %>
+              <td>
+            <%= cadcli.status %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path(cadcli) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_cadcli_path(cadcli) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", cadcli_path(cadcli), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+
+
+
+        <% else %>
+        
+        
+    <h2 class="title">Informações de Uso da Aplicação</h2>
+    <div class="inner">
+      <p class="first">
+        Seja bem vindo a nossa Aplicação Web!
+      </p>
+      <p> <span class="small">Lembre-se que, para poder acessar a nossa aplicação você precisa estar cadastrado.</span></p>
+      <p> <span class="gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</span></p>
+      <hr />
+      <p>
+        Se a sua Empresa ainda não possui cadastro para o acesso aos downloads, entre em contato com o suporte para maiores detalhes. <span class="hightlight">A D&D Support Service - Consultoria em T.I.</span>, agradece o seu contato!
+      </p>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+
+<% end %>
+

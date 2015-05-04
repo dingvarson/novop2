@@ -1,0 +1,60 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", contatos_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_contato_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "")  %> 
+     <form accept-charset="UTF-8" action="/contatos/consulta" method="get">
+  <label>Nome do Contato: 
+    <input type="text" name="lala" OnKeyUp="this.style.textTransform='uppercase'" id="" />
+      
+  </label>
+  <label>
+    <input type="submit" name="" id="" value="Consultar" />
+    
+  </label>
+  </h2>
+  
+  
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.contato.nome_completo", :default => t("activerecord.labels.nome_completo", :default => "Nome_completo")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @contatos.each do |contato| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= contato.id %>
+          </td>
+                    <td>
+            <%= link_to contato.nome_completo, contato_path(contato) %>
+          </td>
+                    <td>
+            <%= contato.created_at.strftime("%d/%m/%Y") %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", contato_path(contato) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_contato_path(contato) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", contato_path(contato), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        <%= will_paginate @contatos %>
+      </div>
+    </div>
+  </div>
+</div>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+

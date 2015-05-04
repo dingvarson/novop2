@@ -1,0 +1,56 @@
+<%= form_for(@descr_server) do |f| %>
+  <% if @descr_server.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@descr_server.errors.count, "error") %> prohibited this descr_server from being saved:</h2>
+
+      <ul>
+      <% @descr_server.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cliente %><br />
+    <%= f.text_area :cliente %>
+  </div>
+  <div class="field">
+    <%= f.label :dns %><br />
+    <%= f.text_area :dns %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+
+
+  <div class="field">
+    <%= f.label :cliente, t("activerecord.attributes.order.end_cli", :default => "Cliente"), :class => :label %>
+    <%= f.text_field :cliente, :class => 'text_field' %><p>
+  </div>
+  
+   <div class="field">
+    <%= f.label :dns, t("activerecord.attributes.order.end_cli", :default => "DNS"), :class => :label %>
+    <%= f.text_field :dns, :class => 'text_field' %><p>
+  </div>
+  
+ 
+  <p>
+  	 <div class="actions">
+  
+   </div>
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Salvar")}") %> <%= t("web-app-theme.save", :default => "Salvar") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), dados_servers_path, :class => "text_button_padding link_button" %>
+</div>
+
+  
+ 
+

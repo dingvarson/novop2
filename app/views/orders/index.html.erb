@@ -1,0 +1,97 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", orders_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_order_path %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Consulta por Data")}", consuldata_orders_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "")  %>
+   
+  <form accept-charset="UTF-8" action="/orders/consulta" method="get">
+  <label>Nome do cliente: 
+    <input type="text" name="lala" OnKeyUp="this.style.textTransform='uppercase'" id="" />
+      
+  </label>
+  <label>
+    <input type="submit" name="" id="" value="Consultar" />
+    
+  </label>
+ </h2>   
+    
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.ordem.nome_cli", :default => t("activerecord.labels.nome_cli", :default => "Nome Cliente")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Endereço")  %></th>
+                    
+                     <th><%= t("web-app-theme.valor", :default => "Fone")  %></th>
+                     
+                     <th><%= t("web-app-theme.valor", :default => "Criada em")  %></th>
+           
+          <th><%= t("web-app-theme.status", :default => "Status")  %></th>
+
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @orders.each do |order| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= order.id %>
+          </td>
+                    <td>
+            <%= link_to order.nome_cli, order_path(order) %>
+          </td>
+                    <td>
+            <%= order.end_cli %>
+             <td>
+            <%= order.fone_cli %>
+              <td>
+            <%= order.created_at.strftime("%d/%m/%Y") %>
+          </td>
+          
+          <td>
+            <%= order.status %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", order_path(order) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_order_path(order) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", order_path(order), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        <%= will_paginate @orders %> 
+        
+        Total Geral R$<%= @orders = Item.sum(:val_total)%>
+        
+       
+        
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+<% content_for :sidebar, render(:partial => 'cadclis/sidebar') -%>
+
+
+
+
+
+
+
+
+
+
+
+
+

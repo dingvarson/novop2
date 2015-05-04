@@ -1,0 +1,96 @@
+<p align="center">
+<%= image_tag "web-app-theme/cabecalho_pdf.jpg" %>
+
+<h2><font color="silver"><p align="center">ORDEM DE SERVIÇO <font color="red">Nº <%= @order.id%></font></p></font></h2>
+         
+  <div class="content">
+  	<h2 class="title"><%= t("web-app-theme.new", :default => "Dados do Cliente:")%></h2>
+    <div class="inner">
+    	
+   	
+<p>
+  <b><%= t("activerecord.attributes.order.nome_cli", :default => t("activerecord.labels.nome_cli", :default => "Nome")) %>:</b>
+
+  <%= @order.nome_cli %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.cadcli.end_cli", :default => t("activerecord.labels.end_cli", :default => "Endereço")) %>:</b>
+
+  <%= @order.end_cli %>
+</p>
+
+<p>
+ <b><%= t("activerecord.attributes.cadcli.fone_cli", :default => t("activerecord.labels.fone_cli", :default => "Fone")) %>:</b>
+
+  <%= @order.fone_cli %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.cadcli.data_venda", :default => t("activerecord.labels.end_cli", :default => "Cliente desde")) %>:</b>
+
+  <%= @order.created_at.strftime("%d/%m/%Y") %>
+ 
+</p>
+
+ </h2>   
+    
+    
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.ordem.quant", :default => t("activerecord.labels.quant", :default => "Quantidade")) %>
+          </th>
+                    <th><%= t("web-app-theme.descr", :default => "Descrição:")  %></th>
+                    
+                     <th><%= t("web-app-theme.val_unit", :default => "Valor unitário:")  %></th>
+                     
+                     <th><%= t("web-app-theme.val_total", :default => "Valor total:")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        
+        
+               
+        <h2>Descrição dos Serviços:</h2>
+<% @order.items.each do |item| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= item.id %>
+          </td>
+                    <td>
+            <%= item.quant %>
+          </td>
+                    <td>
+            <%= item.descr %>
+             <td>
+            <%= item.val_unit %>
+              <td>
+            <%= item.val_total %>
+          </td>
+          <td class="last">
+                       </td>
+          </tr>          
+        <% end -%>
+      </table>
+
+<br>
+
+ <% if @items.nil? %>
+    <h3>Total Geral R$ 0,00</h3>
+    <% else %>
+    <h3>Total Geral R$ <%= @items %></h3>
+    <% end %>
+
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+São Paulo, <%= DateTime.now.strftime("%d/%m/%Y") %> 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font size="5">Ademir de Góes Gomes</font> 	

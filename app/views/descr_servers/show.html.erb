@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @descr_server.cliente %>
+</p>
+
+<p>
+  <b>Dns:</b>
+  <%= @descr_server.dns %>
+</p>
+
+
+<%= link_to 'Edit', edit_descr_server_path(@descr_server) %> |
+<%= link_to 'Back', descr_servers_path %>

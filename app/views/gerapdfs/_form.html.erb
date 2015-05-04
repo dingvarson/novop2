@@ -1,0 +1,17 @@
+<%= form_for(@gerapdf) do |f| %>
+  <% if @gerapdf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gerapdf.errors.count, "error") %> prohibited this gerapdf from being saved:</h2>
+
+      <ul>
+      <% @gerapdf.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

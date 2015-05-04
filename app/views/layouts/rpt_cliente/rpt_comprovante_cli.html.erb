@@ -1,0 +1,45 @@
+       
+<p align="center">
+<%= image_tag "web-app-theme/cabecalho_pdf.jpg" %>
+
+<h1><font color="silver"><p align="center">COMPROVANTE DE PAGAMENTO</p></font></h1>
+<br>
+<h2>
+Declaramos ter recebido a importância de R$<%= @cadcli.valor %> em depósito bancário de: <%= @cadcli.nomecli %>.
+
+Referente á <%= @cadcli.descr_serv %>.
+</h2>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+São Paulo, <%= DateTime.now.strftime("%d/%m/%Y") %> 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font size="5">D&D Support Service - Consultoria em T.I.</font> 	
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<b>Observação:</b>
+O periodo de validade dos serviços descritos acima foram renovados até: <b><%= @datanova.strftime("%d/%m/%Y") %></b>
+

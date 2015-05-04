@@ -1,0 +1,105 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listar")}", orders_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_order_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Visualizar")}", order_path %></li>
+      <li ><%= link_to "#{t("web-app-theme.baixar", :default => "Efetuar Baixa")}", baixa_os_gerapdf_path(@order), :confirm => "#{t("web-app-theme.confirm", :default => "Você confirma o Recebimento da O.S: #{@order.nome_cli}?")}" %> </li>
+
+      <li> <%= link_to "Gerar Comprovante", rpt_order_gerapdf_path(@order) %> </li>
+      
+
+                 
+    </ul>
+  </div>          
+  <div class="content">
+  	<h2 class="title"><%= t("web-app-theme.new", :default => "Dados do Cliente O.S")%> <font color="red">Nº <%= @order.id%></font></h2>
+    <div class="inner">
+    	
+   	
+<p>
+  <b><%= t("activerecord.attributes.order.nome_cli", :default => t("activerecord.labels.nome_cli", :default => "Nome")) %>:</b>
+
+  <%= @order.nome_cli %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.cadcli.end_cli", :default => t("activerecord.labels.end_cli", :default => "Endereço")) %>:</b>
+
+  <%= @order.end_cli %>
+</p>
+
+<p>
+ <b><%= t("activerecord.attributes.cadcli.fone_cli", :default => t("activerecord.labels.fone_cli", :default => "Fone")) %>:</b>
+
+  <%= @order.fone_cli %>
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.cadcli.data_venda", :default => t("activerecord.labels.end_cli", :default => "Data")) %>:</b>
+
+  <%= @order.created_at.strftime("%d/%m/%Y") %>
+ 
+</p>
+
+<p>
+  <b><%= t("activerecord.attributes.cadcli.status", :default => t("activerecord.labels.end_cli", :default => "Status")) %>:</b>
+
+  <font color="red"><%= @order.status %></font>
+ 
+</p>
+
+ </h2>   
+    
+    
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.ordem.quant", :default => t("activerecord.labels.quant", :default => "Quantidade")) %>
+          </th>
+                    <th><%= t("web-app-theme.descr", :default => "Descrição:")  %></th>
+                    
+                     <th><%= t("web-app-theme.val_unit", :default => "Valor unitário:")  %></th>
+                     
+                     <th><%= t("web-app-theme.val_total", :default => "Valor total:")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        
+        <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_order_path(@order), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Voltar")}") + " " + t("web-app-theme.edit", :default=> "Voltar"), orders_path, :class => "button" %> 
+</div>  
+               
+        <h2>Items:</h2>
+<% @order.items.each do |item| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= item.id %>
+          </td>
+                    <td>
+            <%= item.quant %>
+          </td>
+                    <td>
+            <%= item.descr %>
+             <td>
+            <%= item.val_unit %>
+              <td>
+            <%= item.val_total %>
+          </td>
+          <td class="last">
+           <%= link_to "#{t("web-app-theme.show", :default => "Editar")}", edit_item_path(item) %>
+           <%= link_to "#{t("web-app-theme.edit", :default => "Excluir")}", item, method: :delete, :order_id => item, data: { confirm: 'Voce tem Certeza?' } %>	
+                   </td>
+          </tr>          
+        <% end -%>
+      </table>
+
+
+
+    
+    </div>
+ 
+</div>
+</div>
+<% content_for :sidebar, render(:partial => 'orders/sidebar') -%>

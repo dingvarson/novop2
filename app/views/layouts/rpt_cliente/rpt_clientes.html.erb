@@ -1,0 +1,55 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+
+<p align="left">
+<%= image_tag "web-app-theme/cabecalho_pdf.jpg" %>
+
+<h1><font color="silver"><p align="left">RELATÓRIO GERAL DE CLIENTES</p></font></h1>
+<br>
+
+<div class="inner">
+      <table class="table">
+      	
+      	
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.cadcli.nomecli", :default => t("activerecord.labels.nomecli", :default => "Nome Cliente")) %>
+          </th>
+                              
+                    
+                    <th><%= t("web-app-theme.vencto", :default => "Vencimento")  %></th>
+                    
+                     <th><%= t("web-app-theme.valor", :default => "Valor")  %></th>
+                     
+                     <th><%= t("web-app-theme.status", :default => "Status")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+       
+        
+        <% @cadclis.each do |cadcli| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= cadcli.id %>
+          </td>
+                    <td>
+            <%= link_to cadcli.nomecli, cadcli_path(cadcli) %>
+          </td>
+                                       	
+                    <td>
+            <%= cadcli.datavencto.strftime("%d/%m/%Y") %>
+             <td>
+            <%= cadcli.valor %>
+              <td>
+            <%= cadcli.status %>
+          </td>
+         
+        </tr>          
+        <% end -%>
+      </table>
+      <br />
+      <p align="left">Total geral R$ <%= @cadcliss %></p> 
+      <p align="left">Total de Clientes Avulsos: <%= @avulso %> </p>
+      <p align="left">Quantidade de Clientes Mensal Fixo: <%= @fixo_mensal %> - Valor R$ <%= @valfixo_mensal %></p>
+      

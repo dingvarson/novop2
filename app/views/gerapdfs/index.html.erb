@@ -1,0 +1,21 @@
+<h1>Listing gerapdfs</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gerapdfs.each do |gerapdf| %>
+  <tr>
+    <td><%= link_to 'Show', gerapdf %></td>
+    <td><%= link_to 'Edit', edit_gerapdf_path(gerapdf) %></td>
+    <td><%= link_to 'Destroy', gerapdf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gerapdf', new_gerapdf_path %>

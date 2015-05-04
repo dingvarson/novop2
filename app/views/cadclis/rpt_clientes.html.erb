@@ -1,0 +1,49 @@
+<div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.cadcli.nomecli", :default => t("activerecord.labels.nomecli", :default => "Nome Cliente")) %>
+          </th>
+                              
+    
+                    <th><%= t("web-app-theme.vencto", :default => "Vencimento")  %></th>
+                    
+                     <th><%= t("web-app-theme.valor", :default => "Valor")  %></th>
+                     
+                     <th><%= t("web-app-theme.status", :default => "Status")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+       
+                <% @cadclis.each do |cadcli| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= cadcli.id %>
+          </td>
+                    <td>
+            <%= link_to cadcli.nomecli, cadcli_path(cadcli) %>
+          </td>
+          <td>
+            <%= cadcli.end_c %>
+              </td>
+              <td>
+            <%= cadcli.fone_c %>
+              </td>                            	
+                    <td>
+            <%= cadcli.datavencto.strftime("%d/%m/%Y") %>
+             <td>
+            <%= cadcli.valor %>
+              <td>
+            <%= cadcli.status %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", cadcli_path(cadcli) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_cadcli_path(cadcli) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", cadcli_path(cadcli), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
