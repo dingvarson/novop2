@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>omini</name>
+	<name>novop2</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
-<<<<<<< HEAD
-=======
 		<buildCommand>
 			<name>com.aptana.ide.core.unifiedBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
->>>>>>> 63de247a882c531a197da391224eeb7b246c52ff
 	</buildSpec>
 	<natures>
 		<nature>com.aptana.projects.webnature</nature>
